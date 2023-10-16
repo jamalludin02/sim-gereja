@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Home_Controller;
+use App\Http\Controllers\Ibadah_Controller;
+use App\Http\Controllers\Validasi_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//HALAMAN UTAMA
+Route::get('/halamanutama',[Home_Controller::class, 'index']);
+
+//HALAMAN DAFTAR IBADAH
+Route::get('/ibadah',[Ibadah_Controller::class, 'index']);
+
+//HALAMAN VALIDASI
+Route::get('/validasi',[Validasi_Controller::class, 'index']);

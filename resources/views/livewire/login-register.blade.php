@@ -33,7 +33,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Password :</label>
-                        <input type="password" id="password" wire:model="passwordField" name="password" class="form-control">
+                        <input type="password" id="password" wire:model="password" name="password" class="form-control">
                         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -42,7 +42,8 @@
                     <button class="btn text-white btn-success rounded-9 text-capitalize" wire:click.prevent="registerStore">Register</button>
                 </div>
                 <div class="col-md-12">
-                    <a class="text-primary text-capitalize" wire:click.prevent="register"><strong>Login</strong></a>
+                    Sudah punya akun?<br>
+                    <a class="text-primary rounded-9 text-capitalize text-decoration-underline" href="" wire:click.prevent="register"><strong>Login</strong></a>
                 </div>
             </div>
         </form>
@@ -80,7 +81,7 @@
                             <div class="col-md-12">
                     Belum punya akun?
                     <br> 
-                    <a class="btn btn-primary text-white rounded-9" wire:click.prevent="register"><strong>Registrasi</strong></a>
+                    <a class="text-primary rounded-9 text-capitalize text-decoration-underline" href="" wire:click.prevent="register"><strong>Registrasi</strong></a>
                 </div>
                         </div>
                         

@@ -55,37 +55,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
+                        @guest
                         <a href="/halamanutama" class="nav-item nav-link active">Home</a>
+                        <a href="/" class="nav-item nav-link">Pengumuman</a>
+                        <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
+                        <a href="/login" class="nav-item nav-link">Login</a>
+                        @else
+                       @if (Auth::user()->isUmat == 1)
+                       <a href="/halamanutama" class="nav-item nav-link active">Home</a>
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
                         <a href="/" class="nav-item nav-link">Pengumuman</a>
                         <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
                         <a href="/" class="nav-item nav-link">History</a>
                         <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
-                        @guest
-                        <a href="/login" class="nav-item nav-link">Login</a>
-                        @else
-                       @if (Auth::user()->isAdmin == 1)
-                       <a href="/login" class="nav-item nav-link">Dashboard</a>
+                        <a href="/" class="nav-item nav-link">Profil</a>
                        <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                   
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-                                    </form>
-                                    @else
-                                <a href="{{ route('logout') }}" class="nav-item nav-link"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                   
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    @endif
-                                @endguest   
+                                    </form>  
                         <!-- <a href="/login" class="nav-item nav-link">Login</a> -->
-                        
                         </div>
+                        <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>
                     </div>
-                    <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>
+                    @endif
+                    @endguest 
                 </div>
             </nav>
 

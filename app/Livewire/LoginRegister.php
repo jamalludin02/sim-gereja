@@ -33,11 +33,11 @@ class LoginRegister extends Component
 
     public function registerStore(Request $request)
     {
-        // $validatedDate = $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
+        $validatedDate = $this->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
         $request->password = Hash::make($request->password); 
 

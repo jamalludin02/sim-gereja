@@ -57,10 +57,32 @@
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="/halamanutama" class="nav-item nav-link active">Home</a>
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
-                        <a href="menu.html" class="nav-item nav-link">Pengumuman</a>
-                        <a href="menu.html" class="nav-item nav-link">Jumlah Persembahan</a>
-                        <a href="menu.html" class="nav-item nav-link">History</a>
-                        <a href="menu.html" class="nav-item nav-link">Daftar Pendeta</a>
+                        <a href="/" class="nav-item nav-link">Pengumuman</a>
+                        <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
+                        <a href="/" class="nav-item nav-link">History</a>
+                        <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
+                        @guest
+                        <a href="/login" class="nav-item nav-link">Login</a>
+                        @else
+                       @if (Auth::user()->isAdmin == 1)
+                       <a href="/login" class="nav-item nav-link">Dashboard</a>
+                       <a href="{{ route('logout') }}" class="nav-item nav-link"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                   
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    @else
+                                <a href="{{ route('logout') }}" class="nav-item nav-link"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                   
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    @endif
+                                @endguest   
+                        <!-- <a href="/login" class="nav-item nav-link">Login</a> -->
+                        
                         </div>
                     </div>
                     <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>
@@ -149,7 +171,10 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
+
     <!-- JavaScript Libraries -->
+
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>

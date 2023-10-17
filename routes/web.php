@@ -6,6 +6,8 @@ use App\Http\Controllers\Ibadah_Controller;
 use App\Http\Controllers\Validasi_Controller;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin_Controller;
+use App\Http\Controllers\Pengumuman_Controller;
+use App\Livewire\IbadahSyukur;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,7 @@ Route::get('/halamanadmin',[Admin_Controller::class, 'index']);
 Route::get('/halamanpengumuman',[Admin_Controller::class, 'indexpengumuman']);
 Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
 Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);
+//HALAMAN PENGUMUMAN
+Route::get('/pengumuman',[Pengumuman_Controller::class, 'index']);
+//IBADAH SYUKUR
+Route::view('form-ibadah-syukur','livewire.umat');

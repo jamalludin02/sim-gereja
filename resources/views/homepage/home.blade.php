@@ -57,14 +57,14 @@
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         @guest
                         <a href="/halamanutama" class="nav-item nav-link active">Home</a>
-                        <a href="/" class="nav-item nav-link">Pengumuman</a>
+                        <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
                         <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
                         <a href="/login" class="nav-item nav-link">Login</a>
                         @else
                        @if (Auth::user()->isUmat == 1)
                        <a href="/halamanutama" class="nav-item nav-link active">Home</a>
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
-                        <a href="/" class="nav-item nav-link">Pengumuman</a>
+                        <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
                         <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
                         <a href="/" class="nav-item nav-link">History</a>
                         <a href="/" class="nav-item nav-link">Daftar Pendeta</a>

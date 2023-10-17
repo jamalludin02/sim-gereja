@@ -6,8 +6,6 @@ use App\Http\Controllers\Ibadah_Controller;
 use App\Http\Controllers\Validasi_Controller;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin_Controller;
-use App\Livewire\IbadahSyukur;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +33,8 @@ Route::get('/validasi',[Validasi_Controller::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Login Post
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
-
-//form ibadah syukur
-Route::view('form-ibadah-syukur', 'livewire.umat');
+//HALAMAN ADMIN
+Route::get('/halamanadmin',[Admin_Controller::class, 'index']);
+Route::get('/halamanpengumuman',[Admin_Controller::class, 'indexpengumuman']);
+Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
+Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);

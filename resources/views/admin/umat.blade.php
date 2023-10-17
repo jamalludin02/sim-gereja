@@ -87,7 +87,7 @@ tr:nth-child(even) {
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Daftar Pengajuan Surat Ibadah</h1>
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Data Umat Gereja</h1>
     <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Selamat Datang Admin! --</b></marquee>
   </header>
 
@@ -95,15 +95,7 @@ tr:nth-child(even) {
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
   <table>
   <tr>
-    <th>Nama KK</th>
-    <th>Alamat</th>
-    <th>Lingkungan</th>
-    <th>No WA</th>
-    <th>Tanggal</th>
-    <th>Jam</th>
-    <th>Pendeta</th>
-    <th>Status</th>
-    <th>Upload Surat</th>
+    
   </tr>
   
 </table>

@@ -5,8 +5,7 @@ use App\Http\Controllers\Home_Controller;
 use App\Http\Controllers\Ibadah_Controller;
 use App\Http\Controllers\Validasi_Controller;
 use App\Http\Controllers\Auth\LoginController;
-use App\Livewire\IbadahSyukur;
-
+use App\Http\Controllers\Admin_Controller;
 
 /*
 |--------------------------------------------------------------------------

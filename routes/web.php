@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin_Controller;
 use App\Livewire\IbadahSyukur;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,4 +37,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 
 //form ibadah syukur
-Route::get('/form-ibadah-syukur', IbadahSyukur::class);
+Route::view('form-ibadah-syukur', 'livewire.umat');

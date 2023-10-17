@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Profil extends Component
+class JadwalIbadah extends Component
 {
     public function render()
     {
-        return view('livewire.profil');
+        return view('livewire.jadwal-ibadah');
     }
 }

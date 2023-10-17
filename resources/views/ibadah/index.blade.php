@@ -68,7 +68,7 @@
                 <h1>Jadwal Ibadah Syukur</h1>
                     <div class="container mt-4">
             <div class="row">
-               <a href="" class="btn btn-primary">Daftar</a>
+               <a href="/form-ibadah-syukur" class="btn btn-primary">Daftar</a>
                 <div class="col-lg-8">
                     <div id="calendar"></div>
                 </div>

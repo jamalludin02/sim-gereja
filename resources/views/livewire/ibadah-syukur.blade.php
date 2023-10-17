@@ -1,4 +1,8 @@
 <div>
+@if($registerForm)
+<livewire:jadwal-ibadah/>
+<a href="" wire:click.prevent="register" class="text-decoration-underline">Daftar ibadah syukur</a>
+@else
 <form>
     <h3 class="text-center mb-5">PENDAFTARAN IBADAH SYUKUR</h3>
   <div class="mb-4">
@@ -52,5 +56,7 @@
 
   <button type="submit" class="btn btn-primary btn-block mb-4 rounded-9">Kirim</button>
 </form>
-<a href="" class="text-decoration-underline">Lihat jadwal ibadah syukur</a>
+<a href="" wire:click.prevent="register" class="text-decoration-underline">Lihat jadwal ibadah syukur</a>
+@endif
 </div>
+

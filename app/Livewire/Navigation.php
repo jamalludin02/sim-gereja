@@ -4,12 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Umat extends Component
+class Navigation extends Component
 {
-
-
     public function render()
     {
-        return view('livewire.umat');
+        return view('livewire.navigation');
     }
 }

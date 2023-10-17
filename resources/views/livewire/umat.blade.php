@@ -90,7 +90,8 @@
 
     <div class="container">
         <div class="mt-5 mb-5 px-4 py-4 justify-content-center">
-        <livewire:ibadah-syukur/> 
+        <livewire:ibadah-syukur/>
+        <livewire:profil/> 
         </div>
     </div>
 

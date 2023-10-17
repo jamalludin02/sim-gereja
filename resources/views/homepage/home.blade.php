@@ -69,11 +69,10 @@
                         <a href="/" class="nav-item nav-link">History</a>
                         <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
                         <a href="/" class="nav-item nav-link">Profil</a>
-                       <a href="{{ route('logout') }}" class="nav-item nav-link"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>  
+                       <a href="{{ route('logout') }}" class="nav-item nav-link" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        </form>  
                         <!-- <a href="/login" class="nav-item nav-link">Login</a> -->
                         </div>
                         <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>

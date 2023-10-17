@@ -5,6 +5,8 @@ use App\Http\Controllers\Home_Controller;
 use App\Http\Controllers\Ibadah_Controller;
 use App\Http\Controllers\Validasi_Controller;
 use App\Http\Controllers\Auth\LoginController;
+use App\Livewire\IbadahSyukur;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,6 @@ Route::get('/validasi',[Validasi_Controller::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Login Post
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
+
+//form ibadah syukur
+Route::get('/form-ibadah-syukur', IbadahSyukur::class);

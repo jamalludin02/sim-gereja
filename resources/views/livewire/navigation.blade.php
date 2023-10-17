@@ -1,5 +1,5 @@
 <div>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0E172A;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0E172A;">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -19,7 +19,7 @@
       <!-- Left links -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Home</a>
+          <a class="nav-link " aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " aria-current="page" href="#">Jumlah Persembahan</a>
@@ -37,7 +37,7 @@
           <a class="nav-link " aria-current="page" href="#">Daftar Pendeta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/form-ibadah-syukur">Daftar Ibadah Syukur</a>
+          <a class="nav-link " aria-current="page" href="#">Form Ibadah Syukur</a>
         </li>
         <li class="nav-item dropdown text-capitalize">
           <a

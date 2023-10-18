@@ -16,7 +16,6 @@ class Pengumuman extends Component
     private function resetInputFields(){
         $this->judul = '';
         $this->isi = '';
-        $this->pengumumanId = '';
     }
 
     public function mount()
@@ -57,6 +56,7 @@ class Pengumuman extends Component
         Pengumumans::where('id', $this->pengumumanId)->delete();
         session()->flash('berhasilHapus', 'Pengumuman Berhasil Dihapus');
         $this->pengumuman = Pengumumans::get();
+        $this->resetInputFields();
         $this->render();
     }
 

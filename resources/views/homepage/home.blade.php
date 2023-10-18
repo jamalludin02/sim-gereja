@@ -67,7 +67,7 @@
                         <a href="/" class="nav-item nav-link">History</a>
                         <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
                         <a href="/profil" class="nav-item nav-link">Profil</a>
-                       <a href="{{ route('logout') }}" class="nav-item nav-link"
+                        <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -76,6 +76,15 @@
                         </div>
                         <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>
                     </div>
+                    @endif
+                    @if (Auth::user()->isAdmin == 1)
+                    <a href="/" class="nav-item nav-link active">Home</a>
+                    <a href="/halamanadmin" class="nav-item nav-link">Dashboard Admin</a>
+                    <a href="{{ route('logout') }}" class="nav-item nav-link"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                     @endif
                     @endguest 
                 </div>

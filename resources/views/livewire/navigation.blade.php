@@ -43,7 +43,7 @@
           <a class="nav-link " aria-current="page" href="#">Daftar Pendeta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/form-ibadah-syukur">Form Ibadah Syukur</a>
+          <a class="nav-link " aria-current="page" href="/ibadah">Form Ibadah Syukur</a>
         </li>
 
         <li class="nav-item dropdown text-capitalize">

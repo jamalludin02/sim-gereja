@@ -37,7 +37,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Login Post
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 //HALAMAN ADMIN
-Route::get('/halamanadmin',[Admin_Controller::class, 'index']);
+Route::get('/halamanadmin',[Admin_Controller::class, 'index'])->middleware(['auth', 'admin']);
 Route::get('/halamanpengumuman',[Admin_Controller::class, 'indexpengumuman']);
 Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
 Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);

@@ -13,6 +13,12 @@ class Pengumuman extends Component
     public $pengumumanId;
     public $createForm = false;
 
+    private function resetInputFields(){
+        $this->judul = '';
+        $this->isi = '';
+        $this->pengumumanId = '';
+    }
+
     public function mount()
     {
         $this->pengumuman = Pengumumans::get();
@@ -32,6 +38,7 @@ class Pengumuman extends Component
         $this->pengumumanId = $pengumumanId;
         $pengumuman = Pengumumans::find($pengumumanId);
         $this->pengumumanId = $pengumuman->id;
+        $this->resetInputFields();
     }
 
     public function editProses(){
@@ -42,6 +49,7 @@ class Pengumuman extends Component
         ]);
         session()->flash('berhasilEdit', 'Pengumuman Berhasil Diedit');
         $this->pengumuman = Pengumumans::get();
+        $this->resetInputFields();
         $this->render();
     }
 

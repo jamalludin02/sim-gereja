@@ -68,7 +68,7 @@
                         <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
                         <a href="/" class="nav-item nav-link">History</a>
                         <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
-                        <a href="/" class="nav-item nav-link">Profil</a>
+                        <a href="/profil" class="nav-item nav-link">Profil</a>
                        <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -145,7 +145,7 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jl. Jend A.Yani 079-081, Kuala Kapuas, Kalimantan Tengah</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jl. S.Parman No.88, Selat Hilir, Kec. Selat, Kab. Kapuas, Kalimantan Tengah</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(0513) 21123/21650</p>
                     </div>
                     <div class="col-lg-3 col-md-6">

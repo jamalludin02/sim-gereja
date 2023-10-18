@@ -58,9 +58,9 @@
 
         <!-- About Start -->
         <div class="container-xxl py-5">
-        <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Halaman ini berisi daftar surat ibadah yang sudah tervalidasi oleh admin --</b></marquee>
+        <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Silahkan Cek Data Surat Anda Sebelum Mencetak Surat --</b></marquee>
             <div class="container">
-                <h1>Daftar Surat Tervalidasi</h1>
+                <h1>Hasil Validasi Surat Ibadah</h1>
                     <div class="container mt-4">
             <div class="row">
                <table class="table">
@@ -72,6 +72,7 @@
                     <th>Tanggal</th>
                     <th>Jam</th>
                     <th>Pendeta</th>
+                    <th>Download Surat</th>
                 </tr>
                </table>
             </div>

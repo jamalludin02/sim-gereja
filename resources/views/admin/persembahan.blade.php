@@ -87,7 +87,7 @@ tr:nth-child(even) {
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Data Pengumuman</h1>
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Data Persembahan Umat</h1>
     <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Selamat Datang Admin! --</b></marquee>
   </header>
 

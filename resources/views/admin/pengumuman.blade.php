@@ -90,6 +90,9 @@ tr:nth-child(even) {
     <h1 class="w3-jumbo"><span class="w3-hide-small">Data Pengumuman</h1>
     <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Selamat Datang Admin! --</b></marquee>
   </header>
+  <div class="w3-container w3-content w3-justify w3-text-grey">
+  <a href="/" class="w3-button w3-blue">Tambah Pengumuman</a>
+  </div>
 
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">

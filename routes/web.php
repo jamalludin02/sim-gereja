@@ -44,11 +44,7 @@ Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);
 //HALAMAN PENGUMUMAN
 Route::get('/pengumuman',[Pengumuman_Controller::class, 'index']);
 //HALAMAN PROFIL UMAT
-<<<<<<< HEAD
 Route::view('/profil','livewire.profil-page');
-=======
-Route::view('/profil',[Umat_Controller::class, 'index']);
->>>>>>> 01c8e021 (update galen)
 //IBADAH SYUKUR
 Route::view('form-ibadah-syukur','livewire.umat');
 

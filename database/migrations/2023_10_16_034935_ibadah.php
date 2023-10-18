@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('tanggal');
             $table->string('jam');
             $table->string('pendeta');
+            $table->unsignedBigInteger('pendeta_id');
             $table->timestamps();
         });
     }

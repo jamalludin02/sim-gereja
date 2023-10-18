@@ -17,10 +17,16 @@
     <div class="collapse navbar-collapse" id="navbarRightAlignExample">
     <a class="navbar-brand" href="/"><img src="assets/images/logo.png" width="50"/></a>
       <!-- Left links -->
+      
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      @guest
         <li class="nav-item">
           <a class="nav-link " aria-current="page" href="/">Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/login">Login</a>
+        </li>
+        @else
         <li class="nav-item">
           <a class="nav-link " aria-current="page" href="#">Jumlah Persembahan</a>
         </li>
@@ -37,8 +43,9 @@
           <a class="nav-link " aria-current="page" href="#">Daftar Pendeta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Form Ibadah Syukur</a>
+          <a class="nav-link " aria-current="page" href="/form-ibadah-syukur">Form Ibadah Syukur</a>
         </li>
+
         <li class="nav-item dropdown text-capitalize">
           <a
             class="nav-link dropdown-toggle"
@@ -52,7 +59,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-            <button wire:click.prevent="register">Tampilkan Profil</button>
+            <a href="/profil" class="dropdown-item">Tampilkan Profil</a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"
@@ -63,6 +70,7 @@
             </li>
           </ul>
         </li>
+        @endguest
       </ul>
     </div>
   </div>

@@ -2,17 +2,14 @@
 <html>
 <head>
     <title>Login / Registrasi</title>
-    <!-- Font Awesome -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     rel="stylesheet"
     />
-    <!-- Google Fonts -->
     <link
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     rel="stylesheet"
     />
-    <!-- MDB -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
     rel="stylesheet"
@@ -20,16 +17,19 @@
     <link href="assets/images/logo.png" rel="icon">
     @livewireStyles
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <livewire:navigation/>
 
-    <div class="container">
-        <div class="mt-5 mb-5 px-4 py-4 justify-content-center">
+<div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="mt-5 col-md-8">
         <livewire:ibadah-syukur/>
         </div>
     </div>
+</div>
 
-    <livewire:footer/>
+
+<livewire:footer/>
     @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

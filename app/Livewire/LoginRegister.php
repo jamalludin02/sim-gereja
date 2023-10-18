@@ -39,7 +39,7 @@ class LoginRegister extends Component
             'password' => 'required',
         ]);
 
-        $this->password = Hash::make($this->password); 
+       $this->password = Hash::make($this->password); 
 
        $data= User::create(['name' => $this->name, 
         'email' => $this->email,

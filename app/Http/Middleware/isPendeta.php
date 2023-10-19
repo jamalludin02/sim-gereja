@@ -15,6 +15,8 @@ class isPendeta
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (\Auth::user() &&  \Auth::user()->isPendeta == true) {
+            return $next($request);
+       }
     }
 }

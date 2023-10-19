@@ -64,7 +64,6 @@
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
                         <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
                         <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
-                        <a href="/" class="nav-item nav-link">History</a>
                         <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
                         <a href="/profil" class="nav-item nav-link">Profil</a>
                         <a href="{{ route('logout') }}" class="nav-item nav-link"

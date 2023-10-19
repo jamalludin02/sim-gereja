@@ -87,6 +87,10 @@ class Pendeta extends Component
     }
 
     public function hapusProses($pendetaId){
+        $fotos = User::where('id', $pendetaId)->first();
+        if($fotos->foto !== null){
+            File::delete('assets/profil/'.$fotos->foto);
+        } 
         User::where('id', $pendetaId)->delete();
         session()->flash('berhasilHapus', 'Akun Pendeta Berhasil Dihapus');
         $this->pendeta = User::where('isPendeta', true)->get();

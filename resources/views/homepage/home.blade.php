@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sistem Pendaftaran Ibadah</title>
+    <title>Gereja Evangelis Kalimantan Sinta Kuala Kapuas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -87,11 +87,10 @@
                     @endif
                     @if (Auth::user()->isPendeta == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="/" class="nav-item nav-link">Jadwal Ibadah</a>
-                        <a href="/" class="nav-item nav-link">Validasi Pendaftaran</a>
-                        <a href="/" class="nav-item nav-link">Surat Tugas</a>
-                        <a href="/" class="nav-item nav-link">Pengumuman</a>
-                        <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
+                        <a href="/jadwal" class="nav-item nav-link">Jadwal Ibadah</a>
+                        <a href="/validasi" class="nav-item nav-link">Validasi Pendaftaran</a>
+                        <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
+                        <a href="/persembahan" class="nav-item nav-link">Jumlah Persembahan</a>
                         <a href="/profil" class="nav-item nav-link">Profil</a>
                         <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
@@ -108,7 +107,7 @@
                     <div class="row align-items-center g-5">
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="display-3 text-white animated slideInLeft">Selamat Datang<br></h1>
-                            <p class="text-white animated slideInLeft mb-4 pb-2">Website Pendaftaran Ibadah Syukur<br>Gereja Evangelis Kalimantan Sinta Kuala Kapuas</p>
+                            <p class="text-white animated slideInLeft mb-4 pb-2">Website Gereja Evangelis Kalimantan Sinta Kuala Kapuas</p>
                         </div>
                         <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                             <img src="assets/images/logo.png" alt="">

@@ -85,6 +85,20 @@
                                         @csrf
                                     </form>
                     @endif
+                    @if (Auth::user()->isPendeta == 1)
+                    <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/" class="nav-item nav-link">Jadwal Ibadah</a>
+                        <a href="/" class="nav-item nav-link">Validasi Pendaftaran</a>
+                        <a href="/" class="nav-item nav-link">Surat Tugas</a>
+                        <a href="/" class="nav-item nav-link">Pengumuman</a>
+                        <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
+                        <a href="/profil" class="nav-item nav-link">Profil</a>
+                        <a href="{{ route('logout') }}" class="nav-item nav-link"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>  
+                    @endif
                     @endguest 
                 </div>
             </nav>

@@ -12,7 +12,8 @@ class Pengumuman extends Component
     public $isi;
     public $pengumumanId;
     public $createForm = false;
-
+    public $editForm = false;
+    public $viewForm=true;
     private function resetInputFields(){
         $this->judul = '';
         $this->isi = '';
@@ -25,6 +26,9 @@ class Pengumuman extends Component
 
     public function mountEdit($pengumumanId)
     {
+        $this->editForm = !$this->editForm;
+        $this->createForm = false;
+        $this->viewForm = false;
         $this->pengumumanId = $pengumumanId;
         $pengumuman = Pengumumans::find($pengumumanId);
         $this->judul = $pengumuman->judul;
@@ -49,11 +53,14 @@ class Pengumuman extends Component
         session()->flash('berhasilEdit', 'Pengumuman Berhasil Diedit');
         $this->pengumuman = Pengumumans::get();
         $this->resetInputFields();
+        $this->viewForm = true;
+        $this->createForm = false;
+        $this->editForm = false;
         $this->render();
     }
 
-    public function hapusProses(){
-        Pengumumans::where('id', $this->pengumumanId)->delete();
+    public function hapusProses($pengumumanId){
+        Pengumumans::where('id', $pengumumanId)->delete();
         session()->flash('berhasilHapus', 'Pengumuman Berhasil Dihapus');
         $this->pengumuman = Pengumumans::get();
         $this->resetInputFields();
@@ -63,6 +70,14 @@ class Pengumuman extends Component
     public function create()
     {
         $this->createForm = !$this->createForm;
+        $this->resetInputFields();
+    }
+
+    public function view()
+    {
+        $this->viewForm = true;
+        $this->createForm = false;
+        $this->editForm = false;
     }
 
     public function createPengumuman(){

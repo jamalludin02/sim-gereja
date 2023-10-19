@@ -11,6 +11,14 @@ class Admin_Controller extends Controller
         return view('admin.index');
     }
 
+    public function indexlingkungan(request $request){
+        return view('admin.lingkungan');
+    }
+
+    public function indexpendeta(request $request){
+        return view('admin.pendeta');
+    }
+
     public function indexpengumuman(request $request){
         return view('admin.pengumuman');
     }

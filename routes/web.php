@@ -40,6 +40,8 @@ Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 //HALAMAN ADMIN
 Route::get('/halamanadmin',[Admin_Controller::class, 'index'])->middleware(['auth', 'admin']);
 Route::view('/halamanpengumuman','admin.pengumuman');
+Route::get('/halamanpendeta',[Admin_Controller::class, 'indexpendeta']);
+Route::get('/halamanlingkungan',[Admin_Controller::class, 'indexlingkungan']);
 Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
 Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);
 //HALAMAN PENGUMUMAN

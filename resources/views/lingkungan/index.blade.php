@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-    <title>LINGKUNGAN</title>
+    <title>ADMIN</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -27,6 +27,18 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+    rel="stylesheet"
+    />
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
@@ -52,6 +64,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
+@livewireStyles
 </head>
 <body class="w3-white">
 
@@ -59,7 +72,7 @@ tr:nth-child(even) {
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w3-red">
   <!-- Avatar image in top left corner -->
   <img src="assets/images/logo.png" style="width:100%">
-     <a href="/halamanumat" class="w3-bar-item w3-button w3-padding-large w3-red">
+     <a href="/halamanketualingkungan" class="w3-bar-item w3-button w3-padding-large w3-red">
     <i class="fa fa-address-book w3-xxlarge"></i>
     <p>Data Umat</p>
   </a>
@@ -69,35 +82,18 @@ tr:nth-child(even) {
   </a>
 </nav>
 
-
-<!-- Page Content -->
 <div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Daftar Umat</h1>
-    <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Selamat Datang Ketua Lingkungan! --</b></marquee>
-  </header>
-
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-  <table>
-  <tr>
-    <th>Nama KK</th>
-    <th>Alamat</th>
-    <th>Lingkungan</th>
-    <th>No WA</th>
-    <th>Tanggal</th>
-    <th>Jam</th>
-    <th>Pendeta</th>
-  </tr>
-  
-</table>
-  
-    
-    
-   
-<!-- END PAGE CONTENT -->
+<livewire:daftar-umat/>
 </div>
-
+@livewireScripts
+    <!-- MDB -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
 </body>
 </html>

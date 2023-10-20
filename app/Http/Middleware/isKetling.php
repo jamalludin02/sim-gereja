@@ -15,6 +15,10 @@ class isKetling
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (\Auth::user() &&  \Auth::user()->isKetling == true) {
+            return $next($request);
+       }
+
+       return back();
     }
 }

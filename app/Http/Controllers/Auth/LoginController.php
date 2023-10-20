@@ -48,4 +48,12 @@ class LoginController extends Controller
             return redirect()->back();
         }
     }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->flush();
+        \Session::forget('key');
+        return \Redirect::to('/');
+    }
 }

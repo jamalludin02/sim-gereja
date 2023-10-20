@@ -27,7 +27,7 @@ use App\Livewire\IbadahSyukur;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Auth::routes();
+// Auth::routes();
 //HALAMAN UTAMA
 Route::get('/',[Home_Controller::class, 'index']);
 //HALAMAN DAFTAR IBADAH
@@ -39,11 +39,12 @@ Route::get('/validasi',[Validasi_Controller::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Login Post
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
+Route::post('logout',[LoginController::class,'logout'])->name('logout');
 //HALAMAN ADMIN
 Route::get('/halamanadmin',[Admin_Controller::class, 'index'])->middleware(['auth', 'admin']);
 Route::view('/halamanpengumuman','admin.pengumuman');
 Route::view('/halamanpendeta','admin.pendeta');
-Route::get('/halamanlingkungan',[Admin_Controller::class, 'indexlingkungan']);
+Route::view('/halamanlingkungan','admin.lingkungan');
 Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
 Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);
 //HALAMAN PENGUMUMAN
@@ -55,7 +56,7 @@ Route::get('/jadwal',[Pendeta_Controller::class, 'index']);
 //HALAMAN PROFIL UMAT
 Route::view('/profil','livewire.profil-page');
 //HALAMAN KETUA LINGKUNGAN
-Route::get('/halamanlingkungan',[Lingkungan_Controller::class, 'index']);
+Route::view('/halamanketualingkungan','lingkungan.index')->middleware(['auth', 'ketling']);
 //IBADAH SYUKUR
 Route::view('form-ibadah-syukur','livewire.umat');
 

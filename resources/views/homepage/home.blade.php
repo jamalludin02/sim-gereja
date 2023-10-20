@@ -76,6 +76,7 @@
                         <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>
                     </div>
                     @endif
+
                     @if (Auth::user()->isAdmin == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="/halamanadmin" class="nav-item nav-link">Dashboard Admin</a>
@@ -85,15 +86,17 @@
                                         @csrf
                                     </form>
                     @endif
-                    @if (Auth::user()->isKetLing == 1)
+
+                    @if (Auth::user()->isKetling == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/halamanadmin" class="nav-item nav-link">Dashboard Ketua Lingkungan</a>
+                    <a href="/halamanketualingkungan" class="nav-item nav-link">Dashboard Ketua Lingkungan</a>
                     <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                     @endif
+                    
                     @if (Auth::user()->isPendeta == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
                         <a href="/jadwal" class="nav-item nav-link">Jadwal Ibadah</a>

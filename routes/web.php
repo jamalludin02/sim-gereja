@@ -10,6 +10,7 @@ use App\Http\Controllers\Pengumuman_Controller;
 use App\Http\Controllers\Persembahan_Controller;
 use App\Http\Controllers\Umat_Controller;
 use App\Http\Controllers\Pendeta_Controller;
+use App\Http\Controllers\Lingkungan_Controller;
 use App\Livewire\IbadahSyukur;
 
 /*
@@ -53,6 +54,8 @@ Route::get('/persembahan',[Persembahan_Controller::class, 'index']);
 Route::get('/jadwal',[Pendeta_Controller::class, 'index']);
 //HALAMAN PROFIL UMAT
 Route::view('/profil','livewire.profil-page');
+//HALAMAN KETUA LINGKUNGAN
+Route::get('/halamanlingkungan',[Lingkungan_Controller::class, 'index']);
 //IBADAH SYUKUR
 Route::view('form-ibadah-syukur','livewire.umat');
 

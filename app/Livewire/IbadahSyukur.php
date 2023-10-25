@@ -60,7 +60,7 @@ class IbadahSyukur extends Component
             'status'=>false
         ]);
         session()->flash('berhasilBuat', 'Jadwal Ibadah Syukur Berhasil Dibuat');
-        $this->resetInputFields();
+        return redirect(request()->header('Referer'));
         $this->mount();
         $this->register();
     }

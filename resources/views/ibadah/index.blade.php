@@ -35,6 +35,18 @@
             integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <!-- fullcalendar css  -->
         <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
+        <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+    rel="stylesheet"
+    />
 </head>
 
 <body>
@@ -67,9 +79,11 @@
             <div class="container">
                 <h1>Jadwal Ibadah Syukur</h1>
                     <div class="container mt-4">
-            <div class="row">
-               <a href="/form-ibadah-syukur" class="btn btn-primary">Daftar</a>
-                <div class="col-lg-8">
+                    <a href="/form-ibadah-syukur" class="btn btn-primary rounded-9 text-capitalize">
+                        Daftar</a>
+                <div class="row">
+               <br>
+                <div class="col-lg-8 mt-4">
                     <div id="calendar"></div>
                 </div>
             </div>

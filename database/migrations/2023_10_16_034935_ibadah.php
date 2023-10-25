@@ -17,10 +17,12 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('lingkungan');
             $table->string('no_wa');
+            $table->boolean('status');
             $table->string('tanggal');
             $table->string('jam');
             $table->string('pendeta');
             $table->unsignedBigInteger('pendeta_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

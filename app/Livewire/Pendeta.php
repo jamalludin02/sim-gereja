@@ -2,12 +2,14 @@
 
 namespace App\Livewire;
 use App\Models\User;
+use App\Models\Jampendeta;
 use Intervention\Image\ImageManagerStatic as Image;
 use Livewire\Component;
 use Livewire\WithFileUploads; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File; 
+use Carbon\Carbon;
 
 class Pendeta extends Component
 {
@@ -74,7 +76,6 @@ class Pendeta extends Component
 
         // dd($data);
         session()->flash('berhasilBuat', 'Registrasi berhasil');
-
         $this->pendeta = User::where('isPendeta', true)->get();
         $this->resetInputFields();
         $this->render();

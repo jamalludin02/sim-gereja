@@ -3,30 +3,35 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Nama_kk</th>
+      <th scope="col">Alamat</th>
+      <th scope="col">Lingkungan</th>
+      <th scope="col">Pendeta</th>
+      <th scope="col">Tanggal</th>
+      <th scope="col">Jam</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
+@if(count($jadwal) == null)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th colspan="7" class="text-center">Jadwal Kosong</th>
     </tr>
+    @else
+    @foreach($jadwal as $item)
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+      <th>{{$item->nama_kk}}</th>
+      <th>{{$item->alamat}}</th>
+      <th>{{$item->lingkungan}}</th>
+      <th>{{$item->pendeta}}</th>
+      <th>{{$item->tanggal}}</th>
+      <th>{{$item->jam}}</th>
+      @if($item->status == false)
+      <th><span class="badge rounded-pill badge-danger">Menunggu Verifikasi</span></th>
+      @endif
+</tr>
+@endforeach
+@endif
   </tbody>
 </table>
 </div>

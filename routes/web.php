@@ -59,4 +59,5 @@ Route::view('/profil','livewire.profil-page');
 Route::view('/halamanketualingkungan','lingkungan.index')->middleware(['auth', 'ketling']);
 //IBADAH SYUKUR
 Route::view('form-ibadah-syukur','livewire.umat');
+Route::get('/getpendeta/{tanggal}/{pendeta_id}', [Umat_Controller::class, 'getPendeta']);
 

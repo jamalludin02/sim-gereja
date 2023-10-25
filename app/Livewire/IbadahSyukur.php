@@ -32,6 +32,12 @@ class IbadahSyukur extends Component
     public function register()
     {
         $this->registerForm = !$this->registerForm;
+        
+    }
+
+    public function back()
+    {
+        return redirect(request()->header('Referer'));
     }
     private function resetInputFields(){
         $this->name = '';

@@ -13,7 +13,7 @@
 @if($registerForm)
 <div>
 <livewire:jadwal-ibadah/>
-<a href="" wire:click.prevent="register" class="text-decoration-underline">Daftar ibadah syukur</a>
+<a href="" wire:click.prevent="back" class="text-decoration-underline">Daftar ibadah syukur</a>
 </div>
 @else
 <div class="mb-5">
@@ -62,6 +62,8 @@
   </select>
 </div>
 
+<div id="Jumlahindex">
+</div>
 <div class="mb-4" id="pilihJam">
   <label class="form-label">Pilih Jam</label>
   <select class="form-control" wire:model="jam" id="pilihJadwaljam">

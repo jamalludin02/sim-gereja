@@ -32,52 +32,13 @@
 
 <livewire:footer/>
     @livewireScripts
-    <!-- <script>
-$(document).ready(function() {
-    $('#pilihPendeta').hide();
-    $('#pilihJam').hide();
-    var tanggal;
-    var pendeta;
-    $('#tanggal').on('change', function() {
-        if ($(this).val() !== '') {
-            $('#pilihPendeta').show();
-        } else {
-            $('#pilihPendeta').hide();
-        }
-    });
 
-    $('#pilihJadwal').on('change',function(){
-        var pendeta;
-        tanggal = $('#tanggal').val()
-        pendeta = $(this).val();
-        if ($(this).val() !== '') {
-            $('#pilihJam').show();
-        } else {
-            $('#pilihJam').hide();
-        }
-    })
-
-    tanggal = $('#tanggal').val()
-    pendeta = $('#pilihJadwal').val();
-    $.ajax({
-        type: "GET",
-        url: "/getpendeta/" + tanggal + "/" + pendeta,
-        success:function(response){
-            if(response.getPendeta == 0){
-                var jam = '<option class="form-control" value="11.00">11.00</option>'+'<option class="form-control" value="16.00">16.00</option>'
-                $('#pilihJadwaljam').append(jam);
-            } 
-        }
-        });
-});
-</script> -->
 <script>
 $(document).ready(function() {
     $('#pilihPendeta').hide();
     $('#pilihJam').hide();
     var tanggal;
     var pendeta;
-
     function callAjax() {
         $.ajax({
             type: "GET",
@@ -85,34 +46,41 @@ $(document).ready(function() {
             success: function(response) {
                 $('#pilihJadwaljam').empty();
                 if (response.getPendeta == 0) {
-                    var jam = '<option class="form-control" value="11.00">11.00</option>' +
+                    var jam ='<option class="form-control">Pilih Jam</option>'+ '<option class="form-control" value="11.00">11.00</option>' +
                         '<option class="form-control" value="16.00">16.00</option>';
                     $('#pilihJadwaljam').append(jam);
                 } 
-
                     $.each(response.getPendeta, function(index, data) {
-                    if(data.jam == 16.00){
-                    var jam = '<option class="form-control" value="11.00">11.00</option>';
+                    $('#Jumlahindex').append('<input type="hidden" class="form-control jumlahindex" value="' + data.jam + '"/>');
+                    });
+
+            var jumlahindexs = $('.jumlahindex').length;
+
+            if(jumlahindexs == 1){
+            $.each(response.getPendeta, function(index, data) {
+                if(data.jam == 16.00){
+                    var jam ='<option class="form-control">Pilih Jam</option>'+ '<option class="form-control" value="11.00">11.00</option>';
                     $('#pilihJadwaljam').append(jam);
                     }  
                     if(data.jam == 11.00){
-                    var jam = '<option class="form-control" value="16.00">16.00</option>';
+                    var jam ='<option class="form-control">Pilih Jam</option>'+ '<option class="form-control" value="16.00">16.00</option>';
                     $('#pilihJadwaljam').append(jam);
                     } 
-                    if(data.jam == 11.00 && data.jam == 16.00){
-                    var jam = '<option class="form-control">Jadwal Kosong</option>';
+                    })
+                } else if(jumlahindexs == 2){
+                    var jam = '<option class="form-control">Jadwal Kosong</option>'
                     $('#pilihJadwaljam').append(jam);
-                    } 
-            });
-                
-            }
-        });
-    }
+                }
+                    
+                 }
+                 });
+                }
 
     $('#tanggal').on('change', function() {
         if ($(this).val() !== '') {
             $('#pilihPendeta').show();
             tanggal = $(this).val();
+            $('.jumlahindex').remove();
             callAjax();
         } else {
             $('#pilihPendeta').hide();
@@ -123,6 +91,7 @@ $(document).ready(function() {
         if ($(this).val() !== '') {
             $('#pilihJam').show();
             pendeta = $(this).val();
+            $('.jumlahindex').remove();
             callAjax();
         } else {
             $('#pilihJam').hide();

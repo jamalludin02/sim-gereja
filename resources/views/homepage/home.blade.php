@@ -64,7 +64,7 @@
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
                         <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
                         <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
-                        <a href="/" class="nav-item nav-link">Daftar Pendeta</a>
+                        <a href="/jadwal" class="nav-item nav-link">Daftar Pendeta</a>
                         <a href="/profil" class="nav-item nav-link">Profil</a>
                         <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>

@@ -74,6 +74,18 @@
                     <th>Pendeta</th>
                     <th>Download Surat</th>
                 </tr>
+                @foreach($data_ibadah as $ibadah)
+                <tr>
+                    <td>{{$ibadah->nama_kk}}</td>
+                    <td>{{$ibadah->alamat}}</td>
+                    <td>{{$ibadah->lingkungan}}</td>
+                    <td>{{$ibadah->no_wa}}</td>
+                    <td>{{$ibadah->tanggal}}</td>
+                    <td>{{$ibadah->jam}}</td>
+                    <td>{{$ibadah->pendeta}}</td>
+                    <td></td>
+                </tr>
+                @endforeach
                </table>
             </div>
         </div>

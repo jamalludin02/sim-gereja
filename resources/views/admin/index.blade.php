@@ -68,7 +68,7 @@ tr:nth-child(even) {
     <i class="fa fa-users w3-xxlarge"></i>
     <p>Daftar Lingkungan</p>
   </a>
-  <a href="/" class="w3-bar-item w3-button w3-padding-large w3-red">
+  <a href="/halamanpendeta" class="w3-bar-item w3-button w3-padding-large w3-red">
     <i class="fa fa-user w3-xxlarge"></i>
     <p>Daftar Pendeta</p>
   </a>

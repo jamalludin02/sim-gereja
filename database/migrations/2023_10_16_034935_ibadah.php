@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('lingkungan');
             $table->string('no_wa');
-            $table->boolean('status');
+            $table->integer('status');
             $table->string('tanggal');
             $table->string('jam');
             $table->string('pendeta');

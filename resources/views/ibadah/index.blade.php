@@ -105,7 +105,8 @@
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(0513) 21123/21650</p>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                       
+                    <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Lokasi Gereja</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.2819977247077!2d114.38448717405511!3d-3.018714196957212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de46ef402525567%3A0x6fc71aeb04fc1d85!2sGereja%20SINTA!5e0!3m2!1sid!2sid!4v1697425343748!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

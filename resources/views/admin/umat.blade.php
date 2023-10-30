@@ -101,11 +101,37 @@ tr:nth-child(even) {
 
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-  <table>
+  <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light text-center">
   <tr>
-    
+    <th>Nama Umat</th>
+    <th>Foto</th>
+    <th>Lingkungan</th>
+    <th>Alamat</th>
+    <th>No Whatsapp</th>
   </tr>
-  
+</thead>
+<tbody>
+@if(count($umat) == null)
+<tr>
+    <th colspan="5" class="text-center" style="font-weight:bold;">Tidak ada data</th>
+  </tr>
+  @else
+  @foreach($umat as $item)
+  <tr>
+ <td class="text-capitalize">{{$item->name}}</td>
+ @if($item->foto == null)
+ <td class="text-capitalize">Foto kosong</td>
+ @else
+ <td><img src="{{ asset('assets/profil/'.$item->foto) }}" alt="Avatar" class="img-fluid my-5" style="max-width: 80px;" ></td>
+ @endif
+<td class="text-capitalize">{{$item->lingkungan}}</td>
+    <td class="text-capitalize">{{$item->alamat}}</td>
+    <td class="text-capitalize">{{$item->noWa}}</td>
+</tr>
+@endforeach
+  @endif
+</tbody>
 </table>
   
     

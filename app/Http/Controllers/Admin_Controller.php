@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class Admin_Controller extends Controller
 {
@@ -28,6 +29,7 @@ class Admin_Controller extends Controller
     }
 
     public function indexumat(request $request){
-        return view('admin.umat');
+        $umat = User::where('isUmat', true)->get();
+        return view('admin.umat', compact('umat'));
     }
 }

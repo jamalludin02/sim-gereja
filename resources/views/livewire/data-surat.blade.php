@@ -1,5 +1,15 @@
 <div>
-
+<div class="row">
+        <div class="col-md-12">
+        @if (session()->has('berhasilUpload'))
+        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="mt-5">
+        <div class="alert alert-success">
+        {{ session('berhasilUpload') }}
+        </div>
+        </div>
+        @endif
+</div>
+</div>
 @if($uploadSuratpage)
 <h5 class="text-left mb-5">Upload Surat Ibadah</h5>
 <div class="mb-5">
@@ -62,7 +72,7 @@
     <button wire:click="toggleButton('terbaru')" type="button" class="{{ $activeButton === 'terbaru'}} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Pengajuan Terbaru</button> 
     <button wire:click="toggleButton('diterima')" type="button" class="{{ $activeButton === 'diterima' ? 'active' : '' }} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Diterima</button>
     <button wire:click="toggleButton('ditolak')" type="button" class="{{ $activeButton === 'ditolak' ? 'active' : '' }} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Ditolak</button>
-    <button type="button" class="btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Berhasil Upload Surat</button>
+    <button wire:click="toggleButton('diupload')" type="button" class="{{ $activeButton === 'diupload' ? 'active' : '' }} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Berhasil Upload Surat</button>
   </div>
   <br>
 <table class="table align-middle mb-0 bg-white">
@@ -78,7 +88,7 @@
     <th>Status</th>
   </tr>
 </thead>
-<tbody>
+<tbody class="shadow-0">
 @if(count($surat) == null)
 <tr>
     <th colspan="8" class="text-center" style="font-weight:bold;">Tidak ada data</th>
@@ -93,8 +103,8 @@
      <td class="text-capitalize">{{ date('d/m/Y', strtotime($item->tanggal)) }}</td>
      <td class="text-capitalize">{{$item->jam}}</td>
      <td class="text-capitalize">{{$item->pendeta}}</td>
-    <td>
-    <div class="btn-group">
+    <td class="shadow-0">
+    <div class="btn-group shadow-0">
     @if($item->status == 0)
   <a href="" class="text-capitalize btn btn-sm btn-success terima" wire:click.prevent="terimaProses({{ $item->id }})"><i class="fa fa-check" aria-hidden="true"></i> Terima</a>
   <a href="" class="text-capitalize btn btn-sm btn-danger tolak" wire:click.prevent="tolakProses({{ $item->id }})"><i class="fa-solid fa-x"></i> Tolak</a>
@@ -103,6 +113,8 @@
 </div>
 @elseif($item->status == 2)
   Ditolak
+  @elseif($item->status == 3)
+  Surat Berhasil Diupload
   @endif
 </td>
 </tr>

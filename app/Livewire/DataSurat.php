@@ -35,6 +35,8 @@ class DataSurat extends Component
             $this->surat = Ibadah::where('status', 1)->get();
         } elseif($button == 'ditolak'){
             $this->surat = Ibadah::where('status', 2)->get();
+        } elseif($button == 'diupload'){
+            $this->surat = Ibadah::where('status', 3)->get();
         }
     }
 
@@ -80,19 +82,19 @@ class DataSurat extends Component
     }
 
     public function uploadSuratproses(){
-        $files=$this->filesurat;
-        // $files = $request->file($this->filesurat);
-        $nama_file = time()."_".$files->getClientOriginalName();
-        $this->filesurat->store('assets/surat');
+        $filename = "surat_ibadah_{$this->namaKK}_{$this->suratId}_{$this->jam}.pdf";
+        $this->filesurat->storeAs('assets/surat', $filename);
         DataSurats::create([
             'ibadah_id' => $this->suratId,
             'pendeta_id' => $this->pendetaId,
             'user_id'=>$this->userId,
-            'surat_link'=>$nama_file
+            'surat_link'=>$filename
         ]);
         
         Ibadah::where('id',$this->suratId)
         ->update(['status'=>3]);
         $this->uploadSuratpage = !$this->uploadSuratpage;
+        session()->flash('berhasilUpload', 'Surat ibadah berhasil diupload');
+        $this->toggleButton('diupload');
     }
 }

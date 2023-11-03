@@ -73,7 +73,19 @@
                                     </form>  
                         <!-- <a href="/login" class="nav-item nav-link">Login</a> -->
                         </div>
-                        <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-primary py-2 px-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pendaftaran
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/ibadah">Daftar Ibadah Syukur</a></li>
+                            <li><a class="dropdown-item" href="#">Daftar Baptis</a></li>
+                            <li><a class="dropdown-item" href="#">Daftar Katekisasi</a></li>
+                            <li><a class="dropdown-item" href="#">Pemberkatan</a></li>
+                        </ul>
+                        </div>
+                        <!-- <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a> -->
                     </div>
                     @endif
 

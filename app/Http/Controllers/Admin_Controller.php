@@ -16,6 +16,18 @@ class Admin_Controller extends Controller
         return view('admin.lingkungan');
     }
 
+    public function indexkatekisasi(request $request){
+        return view('admin.katekisasi');
+    }
+
+    public function indexbaptis(request $request){
+        return view('admin.baptis');
+    }
+
+    public function indexnikah(request $request){
+        return view('admin.nikah');
+    }
+
     public function indexpendeta(request $request){
         return view('admin.pendeta');
     }

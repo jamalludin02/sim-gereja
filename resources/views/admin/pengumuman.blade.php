@@ -75,6 +75,18 @@
     <i class="fa fa-users w3-xxlarge"></i>
     <p>Daftar Lingkungan</p>
   </a>
+    <a href="/halamankatekisasi" class="w3-bar-item w3-button w3-padding-large w3-red">
+    <i class="fa fa-users w3-xxlarge"></i>
+    <p>Daftar Peserta Katekisasi</p>
+  </a>
+  <a href="/halamanbaptis" class="w3-bar-item w3-button w3-padding-large w3-red">
+    <i class="fa fa-users w3-xxlarge"></i>
+    <p>Daftar Peserta Baptis</p>
+  </a>
+  <a href="/halamanberkatnikah" class="w3-bar-item w3-button w3-padding-large w3-red">
+    <i class="fa fa-users w3-xxlarge"></i>
+    <p>Daftar Pemberkatan Nikah</p>
+  </a>
   <a href="/halamanpendeta" class="w3-bar-item w3-button w3-padding-large w3-red">
     <i class="fa fa-user w3-xxlarge"></i>
     <p>Daftar Pendeta</p>

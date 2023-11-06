@@ -80,9 +80,9 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/ibadah">Daftar Ibadah Syukur</a></li>
-                            <li><a class="dropdown-item" href="#">Daftar Baptis</a></li>
-                            <li><a class="dropdown-item" href="#">Daftar Katekisasi</a></li>
-                            <li><a class="dropdown-item" href="#">Pemberkatan</a></li>
+                            <li><a class="dropdown-item" href="/baptis">Daftar Baptis</a></li>
+                            <li><a class="dropdown-item" href="/katekisasi">Daftar Katekisasi</a></li>
+                            <li><a class="dropdown-item" href="/nikah">Pemberkatan Nikah</a></li>
                         </ul>
                         </div>
                         <!-- <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a> -->
@@ -112,6 +112,7 @@
                     @if (Auth::user()->isPendeta == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
                         <a href="/jadwal" class="nav-item nav-link">Jadwal Ibadah</a>
+                        <a href="/katekisasi" class="nav-item nav-link">Daftar Peserta Katekisasi</a>
                         <a href="/validasi" class="nav-item nav-link">Validasi Pendaftaran</a>
                         <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
                         <a href="/persembahan" class="nav-item nav-link">Jumlah Persembahan</a>

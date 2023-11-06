@@ -11,6 +11,9 @@ use App\Http\Controllers\Persembahan_Controller;
 use App\Http\Controllers\Umat_Controller;
 use App\Http\Controllers\Pendeta_Controller;
 use App\Http\Controllers\Lingkungan_Controller;
+use App\Http\Controllers\Katekisasi_Controller;
+use App\Http\Controllers\Baptis_Controller;
+use App\Http\Controllers\Nikah_Controller;
 use App\Livewire\IbadahSyukur;
 
 /*
@@ -45,6 +48,9 @@ Route::view('/halamanadmin','admin.index')->middleware(['auth', 'admin']);
 Route::view('/halamanpengumuman','admin.pengumuman');
 Route::view('/halamanpendeta','admin.pendeta');
 Route::view('/halamanlingkungan','admin.lingkungan');
+Route::view('/halamankatekisasi','admin.katekisasi');
+Route::view('/halamanbaptis','admin.baptis');
+Route::view('/halamanberkatnikah','admin.nikah');
 Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
 Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);
 //HALAMAN PENGUMUMAN
@@ -60,4 +66,9 @@ Route::view('/halamanketualingkungan','lingkungan.index')->middleware(['auth', '
 //IBADAH SYUKUR
 Route::view('form-ibadah-syukur','livewire.umat');
 Route::get('/getpendeta/{tanggal}/{pendeta_id}', [Umat_Controller::class, 'getPendeta']);
-
+//KATEKISASI
+Route::get('/katekisasi',[Katekisasi_Controller::class, 'index']);
+//BAPTIS
+Route::get('/baptis',[Baptis_Controller::class, 'index']);
+//NIKAH
+Route::get('/nikah',[Nikah_Controller::class, 'index']);

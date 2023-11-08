@@ -79,7 +79,7 @@
             <div class="container">
                 <h1>Pendaftaran Baptis</h1>
                     <div class="container mt-4">
-                    <a href="/form-ibadah-syukur" class="btn btn-warning rounded-9 text-capitalize">
+                    <a href="/form-ibadah-syukur" class="btn btn-primary rounded-9 text-capitalize">
                         Daftar</a>
                 <div class="row">
                <br>

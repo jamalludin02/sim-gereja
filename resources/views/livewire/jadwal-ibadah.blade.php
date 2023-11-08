@@ -26,8 +26,8 @@
       <th>{{$item->pendeta}}</th>
       <th>{{$item->tanggal}}</th>
       <th>{{$item->jam}}</th>
-      @if($item->status == false)
-      <th><span class="badge rounded-pill badge-danger">Menunggu Verifikasi</span></th>
+      @if($item->status == true)
+      <th><span class="badge rounded-pill badge-danger">Menunggu Surat Ibadah</span></th>
       @endif
 </tr>
 @endforeach

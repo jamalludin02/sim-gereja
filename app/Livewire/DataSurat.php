@@ -36,7 +36,7 @@ class DataSurat extends Component
         } elseif($button == 'ditolak'){
             $this->surat = Ibadah::where('status', 2)->get();
         } elseif($button == 'diupload'){
-            $this->surat = Ibadah::where('status', 3)->get();
+            $this->surat = Ibadah::where('status', 2)->get();
         }
     }
 
@@ -92,7 +92,7 @@ class DataSurat extends Component
         ]);
         
         Ibadah::where('id',$this->suratId)
-        ->update(['status'=>3]);
+        ->update(['status'=>2]);
         $this->uploadSuratpage = !$this->uploadSuratpage;
         session()->flash('berhasilUpload', 'Surat ibadah berhasil diupload');
         $this->toggleButton('diupload');

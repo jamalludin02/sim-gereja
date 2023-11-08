@@ -63,7 +63,7 @@ class IbadahSyukur extends Component
             'pendeta'=>$namaPendeta,
             'tanggal'=>$this->tanggal,
             'jam'=>$this->jam,
-            'status'=>false
+            'status'=>true
         ]);
         session()->flash('berhasilBuat', 'Jadwal Ibadah Syukur Berhasil Dibuat');
         $this->resetInputFields();

@@ -70,8 +70,6 @@
   <label class="form-label">Filter:</label>
     <br>
     <button wire:click="toggleButton('terbaru')" type="button" class="{{ $activeButton === 'terbaru'}} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Pengajuan Terbaru</button> 
-    <button wire:click="toggleButton('diterima')" type="button" class="{{ $activeButton === 'diterima' ? 'active' : '' }} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Diterima</button>
-    <button wire:click="toggleButton('ditolak')" type="button" class="{{ $activeButton === 'ditolak' ? 'active' : '' }} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Ditolak</button>
     <button wire:click="toggleButton('diupload')" type="button" class="{{ $activeButton === 'diupload' ? 'active' : '' }} btn btn-outline-dark rounded-9" data-mdb-ripple-color="dark">Berhasil Upload Surat</button>
   </div>
   <br>
@@ -112,9 +110,7 @@
   <a href="" class="text-capitalize btn btn-sm btn-primary"wire:click.prevent="uploadSurat({{$item->id}})"><i class="fa fa-upload" aria-hidden="true"></i> Upload Surat</a>
 </div>
 @elseif($item->status == 2)
-  Ditolak
-  @elseif($item->status == 3)
-  Surat Berhasil Diupload
+Surat Berhasil Diupload
   @endif
 </td>
 </tr>

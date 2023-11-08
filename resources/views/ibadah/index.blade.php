@@ -145,8 +145,29 @@
             document.addEventListener('DOMContentLoaded', function () {
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
+                    eventClick: function(eventObj) {
+                    if (eventObj.url) {
+                        alert(
+                        'Clicked ' + eventObj.title + '.\n' +
+                        'Will open ' + eventObj.url + ' in a new tab'
+                        );
+
+                        window.open(eventObj.url);
+
+                        return false; // prevents browser from following link in current tab.
+                    } else {
+                        alert('Ibadah Syukur');
+                    }
+                    },
                     initialView: 'dayGridMonth',
-                    events: [ ],
+                    events: [ 
+                    @foreach($ibadah as $item)
+                    {
+                        title: 'Ibadah {{$item->nama_kk}}',
+                        start: '{{$item->tanggal}}'
+                    },
+                    @endforeach
+                    ],
                     selectOverlap: function (event) {
                         return event.rendering === 'background';
                     }

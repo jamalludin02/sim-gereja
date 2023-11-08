@@ -39,7 +39,7 @@
 
     @livewireScripts
 <script> 
-const picker = document.getElementById('date1');
+const picker = document.getElementById('tanggal');
 picker.addEventListener('input', function(e){
   var day = new Date(this.value).getUTCDay();
   if([0].includes(day)){

@@ -48,7 +48,7 @@
 
   <div class="mb-4">
   <label class="form-label">Hari/Tanggal</label>
-    <input id="date1" type="date" id="tanggal" wire:model="tanggal" class="form-control" />
+    <input type="date" id="tanggal" wire:model="tanggal" class="form-control" />
   </div>
 
   

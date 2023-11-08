@@ -83,9 +83,30 @@
                         Daftar</a>
                 <div class="row">
                <br>
-                <div class="col-lg-8 mt-4">
-                    <div id="calendar"></div>
-                </div>
+               <table> 
+                <thead> 
+                    <tr>
+                    <td>                
+                    <div class="col-lg-8 mt-4">
+                    <div id="calendar">
+                    </div>
+                    </div>
+                    </td>
+                        <td>
+                        <div id="formIbadah"> 
+                    <h5>Jadwal Ibadah Syukur</h5>
+                    <div>
+                    <label class="form-label" id="nama" for="form7Example1"></label>
+                    </div>
+                    <div>
+                    <label class="form-label" id="tanggal" for="form7Example2"></label>
+                    </div>
+                        </div> 
+                        </td>
+                    </tr>
+                </thead>
+               </table>
+
             </div>
         </div>
                 </div>
@@ -143,6 +164,11 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
+                $('#nama').hide();
+                $('#tanggal').hide();
+                // function tampilJadwal() {
+                   
+                // }
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     eventClick: function(eventObj) {
@@ -156,14 +182,16 @@
 
                         return false; // prevents browser from following link in current tab.
                     } else {
-                        alert('Ibadah Syukur');
+                        $('#nama').show();
+                        $('#tanggal').show();
+                        $('#nama').text('Syukur: '+eventObj.event.title);
                     }
                     },
                     initialView: 'dayGridMonth',
-                    events: [ 
+                   events: [ 
                     @foreach($ibadah as $item)
                     {
-                        title: 'Ibadah {{$item->nama_kk}}',
+                        title: 'Ibadah {{$item->nama_kk}}, {{$item->tanggal}}',
                         start: '{{$item->tanggal}}'
                     },
                     @endforeach

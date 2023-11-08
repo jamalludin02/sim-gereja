@@ -191,7 +191,7 @@
                    events: [ 
                     @foreach($ibadah as $item)
                     {
-                        title: 'Ibadah {{$item->nama_kk}}, {{$item->tanggal}}',
+                        title: 'Ibadah {{$item->nama_kk}}, {{$item->jam}} ',
                         start: '{{$item->tanggal}}'
                     },
                     @endforeach

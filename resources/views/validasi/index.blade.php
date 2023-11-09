@@ -83,7 +83,9 @@
                     <td>{{$ibadah->tanggal}}</td>
                     <td>{{$ibadah->jam}}</td>
                     <td>{{$ibadah->pendeta}}</td>
-                    <td></td>
+                    <td><button wire:click="">
+                        Download File
+                        </button></td>
                 </tr>
                 @endforeach
                </table>

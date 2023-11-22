@@ -115,6 +115,7 @@ tr:nth-child(even) {
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
   <table>
   <tr>
+    <th>Nama Kepala Keluarga</th>
     <th>Hari</th>
     <th>Tanggal Ibadah</th>
     <th>Total Persembahan</th>

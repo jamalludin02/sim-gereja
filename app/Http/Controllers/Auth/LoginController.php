@@ -37,14 +37,14 @@ class LoginController extends Controller
     public function Login(Request $request)
     {
         $this->validate($request, [
-            'email'   => 'required|email',
+            'nik'   => 'required|numeric',
             'password' => 'required|min:6'
         ]);
 
-        if (\Auth::attempt($request->only(['email','password']))){
+        if (\Auth::attempt($request->only(['nik','password']))){
             return redirect()->intended('/');
         }else{
-            session()->flash('error', 'email and password are wrong.');
+            session()->flash('error', 'nik dan password salah.');
             return redirect()->back();
         }
     }

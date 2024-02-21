@@ -20,6 +20,7 @@ class Pendeta extends Component
     public $viewForm=true;
     public $email;
     public $name;
+    public $nik;
     public $pendetaId;
     public $password;
     public $foto;
@@ -27,6 +28,7 @@ class Pendeta extends Component
 
     private function resetInputFields(){
         $this->name = '';
+        $this->nik = '';
         $this->email = '';
         $this->password = '';
         $this->foto = '';
@@ -61,12 +63,14 @@ class Pendeta extends Component
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'nik' => 'required|numeric'
         ]);
 
        $this->password = Hash::make($this->password); 
 
        $data= User::create(['name' => $this->name, 
         'email' => $this->email,
+        'nik' => $this->nik,
         'password' => $this->password,
         'isAdmin'=>false,
         'foto'=>$nama_gambars,
@@ -108,6 +112,7 @@ class Pendeta extends Component
         $pendeta = User::find($pendetaId);
         $foto=$pendeta->foto;
         $this->name = $pendeta->name;
+        $this->nik = $pendeta->nik;
         $this->email = $pendeta->email;
         $this->password = $pendeta->password;
         $this->foto = $pendeta->foto;
@@ -142,6 +147,7 @@ class Pendeta extends Component
         ->update([
             'name' => $this->name,
             'email' => $this->email,
+            'nik' => $this->nik,
             'password' => $password,
             'foto'=> $nama_gambars
         ]);

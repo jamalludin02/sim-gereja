@@ -30,6 +30,21 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+     <!-- fullcalendar css  -->
+     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
+        <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+    rel="stylesheet"
+    />
 </head>
 
 <body>
@@ -142,9 +157,12 @@
                             <h1 class="display-3 text-white animated slideInLeft">Selamat Datang<br></h1>
                             <p class="text-white animated slideInLeft mb-4 pb-2">Website Gereja Evangelis Kalimantan Sinta Kuala Kapuas</p>
                         </div>
+                        <!-- <div id="calendar"> -->
+                         
                         <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                             <img src="assets/images/logo.png" alt="">
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -234,6 +252,54 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                $('#nama').hide();
+                $('#tanggal').hide();
+                // function tampilJadwal() {
+                   
+                // }
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    eventClick: function(eventObj) {
+                    if (eventObj.url) {
+                        alert(
+                        'Clicked ' + eventObj.title + '.\n' +
+                        'Will open ' + eventObj.url + ' in a new tab'
+                        );
+
+                        window.open(eventObj.url);
+
+                        return false; // prevents browser from following link in current tab.
+                    } else {
+                        $('#nama').show();
+                        $('#tanggal').show();
+                        $('#nama').text('Syukur: '+eventObj.event.title);
+                    }
+                    },
+                    initialView: 'dayGridMonth',
+                   events: [ 
+                    @foreach($ibadah as $item)
+                    {
+                        title: 'Ibadah {{$item->nama_kk}}, {{$item->jam}} ',
+                        start: '{{$item->tanggal}}'
+                    },
+                    @endforeach
+                    ],
+                    selectOverlap: function (event) {
+                        return event.rendering === 'background';
+                    }
+                });
+    
+                calendar.render();
+            });
+        </script>
 </body>
 
 </html>

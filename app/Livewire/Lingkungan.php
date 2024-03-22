@@ -15,6 +15,7 @@ class Lingkungan extends Component
     public $editForm = false;
     public $viewForm=true;
     public $email;
+    public $nik;
     public $name;
     public $ketlingId;
     public $password;
@@ -23,6 +24,7 @@ class Lingkungan extends Component
     private function resetInputFields(){
         $this->name = '';
         $this->email = '';
+        $this->nik = '';
         $this->password = '';
         $this->lingkungan = '';
     }
@@ -60,6 +62,7 @@ class Lingkungan extends Component
 
        $data= User::create(['name' => $this->name, 
         'email' => $this->email,
+        'nik' => $this->nik,
         'password' => $this->password,
         'lingkungan' =>$this->lingkungan,
         'isAdmin'=>false,
@@ -82,6 +85,7 @@ class Lingkungan extends Component
         $this->ketlingId = $ketlingId;
         $ketling = User::find($ketlingId);
         $this->name = $ketling->name;
+        $this->nik = $ketling->nik;
         $this->email = $ketling->email;
         $this->password = $ketling->password;
         $this->lingkungan = $ketling->lingkungan;
@@ -101,6 +105,7 @@ class Lingkungan extends Component
         ->update([
             'name' => $this->name,
             'email' => $this->email,
+            'nik' => $this->nik,
             'password' => $password,
             'lingkungan'=> $this->lingkungan
         ]);

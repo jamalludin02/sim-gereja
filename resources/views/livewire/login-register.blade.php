@@ -23,6 +23,12 @@
                         @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
+                <div class="form-group">
+                        <label>NIK :</label>
+                        <input type="text" wire:model="nik" class="form-control">
+                        @error('nik') <span class="text-danger error">{{ $message }}</span>@enderror
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Email :</label>
@@ -52,12 +58,12 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="nik" class="col-md-4 col-form-label text-md-end">{{ __('NIK') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="nik" type="nik" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" required autocomplete="nik" autofocus>
 
-                                @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
+                                @error('nik') <span class="text-danger error">{{ $message }}</span>@enderror
                             </div>
                         </div>
 

@@ -40,6 +40,13 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label>NIK :</label>
+                        <input type="text" wire:model="nik" class="form-control">
+                        @error('nik') <span class="text-danger error">{{ $message }}</span>@enderror
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label>Email :</label>
                         <input type="text" wire:model="email" class="form-control">
                         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
@@ -118,6 +125,13 @@
                         <label>Nama :</label>
                         <input type="text" wire:model="name" class="form-control">
                         @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>NIK :</label>
+                        <input type="text" wire:model="nik" class="form-control">
+                        @error('nik') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="col-md-12">

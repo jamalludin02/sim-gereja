@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginRegister extends Component
 {
-    public $users, $email, $passwordField, $name,$password;
+    public $users, $email, $passwordField, $name, $password, $nik;
     public $registerForm = false;
 
     public function render()
@@ -20,6 +20,7 @@ class LoginRegister extends Component
 
     private function resetInputFields(){
         $this->name = '';
+        $this->nik = '';
         $this->email = '';
         $this->password = '';
         $this->passwordField = '';
@@ -35,6 +36,7 @@ class LoginRegister extends Component
     {
         $validatedDate = $this->validate([
             'name' => 'required',
+            'nik' => 'required|numeric',
             'email' => 'required|email',
             'password' => 'required',
         ]);
@@ -44,6 +46,7 @@ class LoginRegister extends Component
        $data= User::create(['name' => $this->name, 
         'email' => $this->email,
         'password' => $this->password,
+        'nik' => $this->nik,
         'isAdmin'=>false,
         'isPendeta'=>false,
         'isKetling'=>false,

@@ -45,6 +45,7 @@ Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 Route::post('logout',[LoginController::class,'logout'])->name('logout');
 //HALAMAN ADMIN
 Route::view('/halamanadmin','admin.index')->middleware(['auth', 'admin']);
+Route::view('/dashboard','admin.dashboard');
 Route::view('/halamanpengumuman','admin.pengumuman');
 Route::view('/halamanpendeta','admin.pendeta');
 Route::view('/halamanlingkungan','admin.lingkungan');

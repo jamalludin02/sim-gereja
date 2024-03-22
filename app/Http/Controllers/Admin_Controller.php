@@ -12,6 +12,10 @@ class Admin_Controller extends Controller
         return view('admin.index');
     }
 
+    public function dashboard(request $request){
+        return view('admin.dashboard');
+    }
+
     public function indexlingkungan(request $request){
         return view('admin.lingkungan');
     }

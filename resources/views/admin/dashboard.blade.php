@@ -54,6 +54,7 @@ table {
   width: 100%;
 }
 
+
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
@@ -63,14 +64,8 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-.btn.active {
-    background-color: #292b2c;
-    color: #fff;
-}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-@livewireStyles
+
 </head>
 <body class="w3-white">
 
@@ -125,57 +120,42 @@ tr:nth-child(even) {
   </a>
 </nav>
 
-
-<!-- Page Content -->
 <div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Daftar Pengajuan Surat Ibadah</h1>
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Dashboard Admin</h1>
     <marquee direction=”left” scrollamount=”2″ align=”center”><b>-- Selamat Datang Admin! --</b></marquee>
   </header>
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-<livewire:data-surat/>     
-<!-- END PAGE CONTENT -->
-@livewireScripts
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
-    ></script>
-    <script>
-    $('.terima').on('click', function () {
-        Swal.fire({
-            title: 'Pengajuan Ibadah Berhasil Diterima',
-            text: 'Silahkan Upload Surat Ibadah.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-    });
-</script>
-<script>
-    $('.tolak').on('click', function () {
-        Swal.fire({
-            title: 'Pengajuan Ibadah Ditolak',
-            text: '',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-    });
-</script>
 
-<script>
-    $('.backs').on('click', function () {
-        Swal.fire({
-            title: 'Pengajuan Ibadah Ditolak',
-            text: '',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-    });
-</script>
+
+<div class="w3-container w3-gray text-white">
+<h4>KOTAK MASUK</h4>
+<br>
+<br>
+<h1>IBADAH SYUKUR</h1>
 </div>
+<br>
+<div class="w3-container w3-gray text-white">
+  <h4>KOTAK MASUK</h4>
+<br>
+<br>
+<h1>BAPTIS ANAK</h1>
 </div>
+<br>
+<div class="w3-container w3-gray text-white">
+<h4>KOTAK MASUK</h4>
+<br>
+<br>
+<h1>PEMBERKATAN NIKAH</h1>
+</div>
+<br>
+<div class="w3-container w3-gray text-white">
+<h4>KOTAK MASUK</h4>
+<br>
+<br>
+<h1>KATEKISASI</h1>
+</div>
+
+
 </body>
 </html>

@@ -30,9 +30,11 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
-     <!-- fullcalendar css  -->
-     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
+ <!-- bootstrap cdn  -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+       <!-- fullcalendar css  -->
+       <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
         <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     rel="stylesheet"
@@ -78,7 +80,6 @@
                        <a href="/" class="nav-item nav-link active">Home</a>
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
                         <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
-                        <a href="/" class="nav-item nav-link">Jumlah Persembahan</a>
                         <a href="/jadwal" class="nav-item nav-link">Daftar Pendeta</a>
                         <a href="/profil" class="nav-item nav-link">Profil</a>
                         <a href="{{ route('logout') }}" class="nav-item nav-link"
@@ -156,6 +157,7 @@
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="display-3 text-white animated slideInLeft">Selamat Datang<br></h1>
                             <p class="text-white animated slideInLeft mb-4 pb-2">Website Gereja Evangelis Kalimantan Sinta Kuala Kapuas</p>
+                            <p class="text-white animated slideInLeft mb-4 pb-2">Scroll Untuk Melihat Jadwal Ibadah</p>
                         </div>
                         <!-- <div id="calendar"> -->
                          
@@ -172,7 +174,31 @@
 
         <!-- Service Start -->
 
-
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+          
+                    <div id="calendar">
+                    
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div id="formIbadah"> 
+                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">Jadwal Ibadah Syukur</h5>
+                    <div>
+                    <label class="form-label" id="nama" for="form7Example1"></label>
+                    </div>
+                    <div>
+                    <label class="form-label" id="tanggal" for="form7Example2"></label>
+                    </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- About Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -198,8 +224,6 @@
                         <h1 class="mb-4">Gereja Kalimantan Evangelis Sinta Kuala Kapuas</h1>
                         <p class="mb-4">Gereja Kalimantan Evangelis (disingkat GKE) atau Gereja Evangelikal di Kalimantan (Bahasa Inggris) (Kalimantan Evangelical Church) ialah sebuah kelompok gereja Kristen Protestan di Indonesia yang didirikan pada tanggal 10 April 1839, awalnya dengan nama Gereja Dayak Evangelis (GDE). Gereja ini melakukan pelayanan iman kepada suku-suku di pulau Kalimantan yaitu suku-suku yang termasuk ke dalam rumpun suku Dayak, meski begitu GKE tidak tertutup bagi anggota non-Dayak. Gereja ini berkantor pusat di kota Banjarmasin, provinsi Kalimantan Selatan. Indonesia</p>
                         <div class="row g-4 mb-4">
-                           
-                            
                         <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
                     </div>
                 </div>
@@ -237,8 +261,6 @@
 
 
     <!-- JavaScript Libraries -->
-
-    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -258,7 +280,7 @@
             integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
-    <script>
+    
             document.addEventListener('DOMContentLoaded', function () {
                 $('#nama').hide();
                 $('#tanggal').hide();

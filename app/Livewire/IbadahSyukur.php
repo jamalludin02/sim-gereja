@@ -18,7 +18,6 @@ class IbadahSyukur extends Component
     public $jam;
     public $name;
     public $lingkungan;
-    public $no_wa;
     public $pilihPendeta = false;
     public $tanggal;
 
@@ -45,7 +44,6 @@ class IbadahSyukur extends Component
         $this->pendetaList = '';
         $this->alamat = '';
         $this->lingkungan = '';
-        $this->no_wa = '';
         $this->tanggal = '';
         $this->jam = '';
     }
@@ -58,7 +56,6 @@ class IbadahSyukur extends Component
             'nama_kk'=>$this->name,
             'alamat'=>$this->alamat,
             'lingkungan'=>$this->lingkungan,
-            'no_wa'=>$this->no_wa,
             'pendeta_id'=>$this->pendetaList,
             'pendeta'=>$namaPendeta,
             'tanggal'=>$this->tanggal,

@@ -10,5 +10,5 @@ class ibadah extends Model
     use HasFactory;
     protected $table = 'ibadah';
     protected $primarykey = 'id';
-    protected $fillable = ['nama_kk','alamat','lingkungan','no_wa','tanggal','jam','pendeta','pendeta_id','user_id','status']; 
+    protected $fillable = ['nama_kk','alamat','lingkungan','tanggal','jam','pendeta','pendeta_id','user_id','status']; 
 }

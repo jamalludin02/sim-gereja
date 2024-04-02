@@ -71,10 +71,6 @@
 </div>
 
 
-  <div class="mb-4">
-  <label class="form-label">No. Whatsapp</label>
-    <input type="number" wire:model="no_wa"  class="form-control" />
-  </div>
 
 
   <button type="submit" wire:click.prevent="kirim"  class="btn btn-primary btn-block mb-4 rounded-9">Kirim</button>

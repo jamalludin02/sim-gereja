@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama_kk')->nullable();   
             $table->string('alamat')->nullable();
             $table->string('lingkungan')->nullable();
-            $table->string('no_wa')->nullable();
             $table->timestamps();
         });
     }

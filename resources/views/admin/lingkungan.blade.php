@@ -77,10 +77,6 @@ tr:nth-child(even) {
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>Daftar Surat</p>
   </a>
-  <a href="/halamanlingkungan" class="w3-bar-item w3-button w3-padding-large w3-red">
-    <i class="fa fa-users w3-xxlarge"></i>
-    <p>Daftar Lingkungan</p>
-  </a>
   <a href="/halamankatekisasi" class="w3-bar-item w3-button w3-padding-large w3-red">
     <i class="fa fa-users w3-xxlarge"></i>
     <p>Daftar Peserta Katekisasi</p>
@@ -100,10 +96,6 @@ tr:nth-child(even) {
   <a href="/halamanpengumuman" class="w3-bar-item w3-button w3-padding-large w3-red">
     <i class="fa fa-bullhorn w3-xxlarge"></i>
     <p>Add Pengumuman</p>
-  </a>
-    <a href="/halamanpersembahan" class="w3-bar-item w3-button w3-padding-large w3-red">
-    <i class="fa fa-bar-chart-o w3-xxlarge"></i>
-    <p>Data Persembahan</p>
   </a>
      <a href="/halamanumat" class="w3-bar-item w3-button w3-padding-large w3-red">
     <i class="fa fa-address-book w3-xxlarge"></i>

@@ -62,17 +62,11 @@
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                   
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        @guest
+            
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    @guest
                         <a href="/" class="nav-item nav-link active">Home</a>
                         <a href="/login" class="nav-item nav-link">Login</a>
                         @else
@@ -81,30 +75,29 @@
                         <a href="/validasi" class="nav-item nav-link">Hasil Validasi</a>
                         <a href="/pengumuman" class="nav-item nav-link">Pengumuman</a>
                         <a href="/jadwal" class="nav-item nav-link">Daftar Pendeta</a>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pendaftaran
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/ibadah">Daftar Ibadah Syukur</a>
+                                <a class="dropdown-item" href="/baptis">Daftar Baptis</a>
+                                <a class="dropdown-item" href="/katekisasi">Daftar Katekisasi</a>
+                                <a class="dropdown-item" href="/nikah">Pemberkatan Nikah</a>
+                            </div>
+                        </li>
                         <a href="/profil" class="nav-item nav-link">Profil</a>
                         <a href="{{ route('logout') }}" class="nav-item nav-link"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>  
-                        <!-- <a href="/login" class="nav-item nav-link">Login</a> -->
-                        </div>
+  </div>
                         <!-- Example single danger button -->
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-primary py-2 px-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Pendaftaran
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/ibadah">Daftar Ibadah Syukur</a></li>
-                            <li><a class="dropdown-item" href="/baptis">Daftar Baptis</a></li>
-                            <li><a class="dropdown-item" href="/katekisasi">Daftar Katekisasi</a></li>
-                            <li><a class="dropdown-item" href="/nikah">Pemberkatan Nikah</a></li>
-                        </ul>
-                        </div>
+                 
                         <!-- <a href="/ibadah" class="btn btn-primary py-2 px-4">Daftar Ibadah Syukur</a> -->
-                    </div>
+                    
                     @endif
-
                     @if (Auth::user()->isAdmin == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="/halamanadmin" class="nav-item nav-link">Dashboard Admin</a>
@@ -124,7 +117,6 @@
                                         @csrf
                                     </form>
                     @endif
-                    
                     @if (Auth::user()->isPendeta == 1)
                     <a href="/" class="nav-item nav-link active">Home</a>
                         <a href="/jadwal" class="nav-item nav-link">Jadwal Ibadah</a>
@@ -148,8 +140,12 @@
                         
                     @endif
                     @endguest 
-                </div>
-            </nav>
+
+  
+    </ul>
+   
+  </div>
+</nav>
 
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container my-5 py-5">

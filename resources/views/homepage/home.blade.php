@@ -47,6 +47,10 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
     rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.min.js" integrity="sha512-FbWDiO6LEOsPMMxeEvwrJPNzc0cinzzC0cB/+I2NFlfBPFlZJ3JHSYJBtdK7PhMn0VQlCY1qxflEG+rplMwGUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.js" integrity="sha512-mDHahYvyhRtp6zBGslYxaLlAiINPDDEoHDD7nDsHoLtua4To71lDTHjDL1bCoAE/Wq/I+7ONeFMpgr62i5yUzw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.min.js" integrity="sha512-ziDG00v9lDjgmzxhvyX5iztPHpSryN/Ct/TAMPmMmS2O3T1hFPRdrzVCSvwnbPbFNie7Yg5mF7NUSSp5smu7RA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.css" integrity="sha512-n1PBkhxQLVIma0hnm731gu/40gByOeBjlm5Z/PgwNxhJnyW1wYG8v7gPJDT6jpk0cMHfL8vUGUVjz3t4gXyZYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -156,8 +160,8 @@
                             <p class="text-white animated slideInLeft mb-4 pb-2">Website Gereja Evangelis Kalimantan Sinta Kuala Kapuas</p>
                             <p class="text-white animated slideInLeft mb-4 pb-2">Silahkan Cek Nama Anda Terlebih Dahulu</p>
                             <div class="input-group">
-                            <input type="search" class="form-control rounded" placeholder="Cek Nama Lengkap Anda" aria-label="Search" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+                            <input type="search" id="namesearch" class="form-control rounded" placeholder="Cek Nama Lengkap Anda" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-primary search" data-mdb-ripple-init>search</button>
                         </div>
                         </div>
                         <!-- <div id="calendar"> -->
@@ -260,6 +264,35 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
+    <div class="modal modalUser" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Data Umat</h5>
+        <button type="button" class="btn-close closes" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nama Lengkap</th>
+    </tr>
+     </thead>
+    <tbody>
+        <tr>
+        <th scope="row" class="idUser"></th>
+        <td class="namaUser text-capitalize"></td>
+        </tr>
+    </tbody>
+    </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary closes">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -322,6 +355,32 @@
     
                 calendar.render();
             });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $('.search').click(function(){
+                    const name = $('#namesearch').val()
+                    $.get("/api/getId", { name: name }, function(data, status){
+                    if(data.users.length == 0){
+                        Swal.fire({
+                        icon: 'warning',
+                        title: 'Data Kosong',
+                        text: 'Tidak ada data yang ditemukan.',
+                    });
+                    } else {
+                        $('.modalUser').show()
+                        $('.idUser').text(data.users[0].id)
+                        $('.namaUser').text(data.users[0].name)
+                        //alert("Data: " + data.users[0].name + "\nStatus: " + status);
+                    }             
+                });
+                });
+
+                $('.closes').click(function(){
+                    $('.modalUser').hide()
+                })
+            })
         </script>
 </body>
 

@@ -150,10 +150,15 @@
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container my-5 py-5">
                     <div class="row align-items-center g-5">
+                        
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="display-3 text-white animated slideInLeft">Selamat Datang<br></h1>
                             <p class="text-white animated slideInLeft mb-4 pb-2">Website Gereja Evangelis Kalimantan Sinta Kuala Kapuas</p>
-                            <p class="text-white animated slideInLeft mb-4 pb-2">Scroll Untuk Melihat Jadwal Ibadah</p>
+                            <p class="text-white animated slideInLeft mb-4 pb-2">Silahkan Cek Nama Anda Terlebih Dahulu</p>
+                            <div class="input-group">
+                            <input type="search" class="form-control rounded" placeholder="Cek Nama Lengkap Anda" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+                        </div>
                         </div>
                         <!-- <div id="calendar"> -->
                          

@@ -12,4 +12,6 @@ class Home_Controller extends Controller
         $ibadah = Ibadah::all();
         return view('homepage.home',compact('ibadah'));
     }
+
+    
 }

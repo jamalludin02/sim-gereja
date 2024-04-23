@@ -14,6 +14,10 @@ class Home_Controller extends Controller
         return view('homepage.home',compact('ibadah'));
     }
 
+    public function indexumat(request $request){
+        $ibadah = Ibadah::all();
+        return view('homepage.homeumat',compact('ibadah'));
+    }
     
 
     public function searchId(Request $request){

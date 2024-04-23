@@ -33,6 +33,7 @@ use App\Livewire\IbadahSyukur;
 // Auth::routes();
 //HALAMAN UTAMA
 Route::get('/',[Home_Controller::class, 'index']);
+Route::get('/umat',[Home_Controller::class, 'indexumat']);
 Route::get('/api/getId', [Home_Controller::class, 'searchId']);
 //Route::get('/umat',[Home_Controller::class, 'indexumat']);
 //HALAMAN DAFTAR IBADAH

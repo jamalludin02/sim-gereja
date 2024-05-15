@@ -11,14 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('datasurat', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->nullable();
-            $table->integer('ibadah_id')->nullable();
-            $table->integer('pendeta_id')->nullable();
+        Schema::create('data_surat', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
+            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_ibadah')->nullable();
+            $table->unsignedBigInteger('id_pendeta')->nullable();
             $table->string('surat_link')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_ibadah')->references('id')->on('ibadah_syukur')->onDelete('cascade');
+            $table->foreign('id_pendeta')->references('id')->on('users')->onDelete('cascade');
         });
+
+
     }
 
     /**
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('datasurat');
+        Schema::dropIfExists('data_surat');
     }
 };

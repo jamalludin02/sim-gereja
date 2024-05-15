@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('ktp_perempuan');
             $table->unsignedBigInteger('sidi_laki')->nullable();
             $table->unsignedBigInteger('sidi_perempuan')->nullable();
+            $table->unsignedBigInteger('id_pendeta')->nullable();
             $table->enum('status', ['PROSES', 'DITERIMA', 'DITOLAK'])->default('PROSES');
             $table->timestamps();
 
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->foreign('id_user_perempuan')->references('id')->on('users')->onDelete('SET NULL');
             $table->foreign('sidi_laki')->references('id')->on('sidi')->onDelete('SET NULL');
             $table->foreign('sidi_perempuan')->references('id')->on('sidi')->onDelete('SET NULL');
+            $table->foreign('id_pendeta')->references('id')->on('users')->onDelete('SET NULL');
         });
 
     }

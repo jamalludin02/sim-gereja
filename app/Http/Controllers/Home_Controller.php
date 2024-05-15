@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\IbadahSyukur;
 use Illuminate\Http\Request;
 use App\Models\ibadah;
+use App\Models\IbadahSyukur as ModelsIbadahSyukur;
 use App\Models\User;
 
 class Home_Controller extends Controller
 {
     public function index(request $request){
-        $ibadah = Ibadah::all();
+        $ibadah = IbadahSyukur::all();
         return view('homepage.home',compact('ibadah'));
     }
 
     public function indexumat(request $request){
-        $ibadah = Ibadah::all();
+        $ibadah = IbadahSyukur::all();
         return view('homepage.homeumat',compact('ibadah'));
     }
     

@@ -17,31 +17,23 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    use HasFactory;
+
+    protected $table = 'users';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'name',
         'email',
         'password',
-        'noWa',
-        'nik',
         'alamat',
-        'lingkungan',
-        'isUmat',
-        'isAdmin',
-        'isPendeta',
-        'isKetling',
-        'foto'
+        'gender',
+        'role',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast.
      *

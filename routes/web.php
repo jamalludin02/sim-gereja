@@ -51,16 +51,16 @@ Route::post('/register',[RegisterController::class,'create'])->name('user.login'
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 Route::post('logout',[LoginController::class,'logout'])->name('logout');
 //HALAMAN ADMIN
-Route::view('/halamanadmin','admin.index')->middleware(['auth', 'admin']);
+Route::view('/admin','admin.index')->middleware(['auth', 'admin']);
 Route::view('/dashboard','admin.dashboard');
-Route::view('/halamanpengumuman','admin.pengumuman');
-Route::view('/halamanpendeta','admin.pendeta');
-Route::view('/halamanlingkungan','admin.lingkungan');
-Route::view('/halamankatekisasi','admin.katekisasi');
-Route::view('/halamanbaptis','admin.baptis');
-Route::view('/halamanberkatnikah','admin.nikah');
-Route::get('/halamanpersembahan',[Admin_Controller::class, 'indexpersembahan']);
-Route::get('/halamanumat',[Admin_Controller::class, 'indexumat']);
+Route::view('/pengumuman','admin.pengumuman');
+Route::view('/pendeta','admin.pendeta');
+Route::view('/lingkungan','admin.lingkungan');
+Route::view('/katekisasi','admin.katekisasi');
+Route::view('/baptis','admin.baptis');
+Route::view('/berkatnikah','admin.nikah');
+Route::get('/persembahan',[Admin_Controller::class, 'indexpersembahan']);
+Route::get('/umat',[Admin_Controller::class, 'indexumat']);
 //HALAMAN PENGUMUMAN
 Route::get('/pengumuman',[Pengumuman_Controller::class, 'index']);
 //HALAMAN PERSEMBAHAN
@@ -70,7 +70,7 @@ Route::get('/jadwal',[Pendeta_Controller::class, 'index']);
 //HALAMAN PROFIL UMAT
 Route::view('/profil','livewire.profil-page');
 //HALAMAN KETUA LINGKUNGAN
-Route::view('/halamanketualingkungan','lingkungan.index')->middleware(['auth', 'ketling']);
+Route::view('/ketualingkungan','lingkungan.index')->middleware(['auth', 'ketling']);
 //IBADAH SYUKUR
 Route::view('form-ibadah-syukur','livewire.umat');
 Route::get('/getpendeta/{tanggal}/{pendeta_id}', [Umat_Controller::class, 'getPendeta']);

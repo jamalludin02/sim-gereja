@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('alamat')->nullable();
             $table->enum('gender', ['L', 'P'])->nullable();
-            $table->string('lingkungan')->nullable();
-            $table->boolean('isAdmin');
             $table->enum('role', ['PENDETA', 'UMAT', 'KETLING'])->default('UMAT');
             $table->timestamps();
         });

@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('ibadah_syukur', function (Blueprint $table) {
             $table->bigIncrements('id'); // kolom primary key dengan auto increment
-            $table->unsignedBigInteger('id_user'); // kolom untuk foreign key harus unsigned
+            $table->unsignedBigInteger('id_user')->unsigned(); // kolom untuk foreign key harus unsigned
             $table->date('tanggal');
             $table->time('waktu');
+            $table->unsignedBigInteger('id_pendeta')->unsigned(); // kolom untuk foreign key harus unsigned
             $table->enum('status', ['PROSES', 'DITERIMA', 'DITOLAK'])->default('PROSES');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_pendeta')->references('id')->on('users')->onDelete('cascade');
         });
 
     }

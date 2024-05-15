@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('umat', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_kk')->nullable();   
-            $table->string('alamat')->nullable();
-            $table->string('lingkungan')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('umat', function (Blueprint $table) {
+        //     $table->bigIncrements('id')->autoIncrement()->unsigned();
+        //     $table->string('nama_kk')->nullable();   
+        //     $table->string('alamat')->nullable();
+        //     $table->string('lingkungan')->nullable();
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('umat');
+        // Schema::dropIfExists('umat');
     }
 };

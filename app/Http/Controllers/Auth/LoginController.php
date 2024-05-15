@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -41,7 +43,7 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if (\Auth::attempt($request->only(['nik','password']))){
+        if (Auth::attempt($request->only(['nik','password']))){
             return redirect()->intended('/');
         }else{
             session()->flash('error', 'nik dan password salah.');
@@ -53,7 +55,7 @@ class LoginController extends Controller
     {
         auth()->logout();
         $request->session()->flush();
-        \Session::forget('key');
-        return \Redirect::to('/');
+        Session::forget('key');
+        return redirect('/');
     }
 }

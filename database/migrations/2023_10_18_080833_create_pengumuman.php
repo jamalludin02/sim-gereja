@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pengumuman', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id')->autoIncrement()->unsigned();
             $table->string('judul')->nullable();
             $table->longText('isi')->nullable();
             $table->timestamps();

@@ -6,6 +6,7 @@ use App\Http\Controllers\Ibadah_Controller;
 use App\Http\Controllers\Validasi_Controller;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin_Controller;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Pengumuman_Controller;
 use App\Http\Controllers\Persembahan_Controller;
 use App\Http\Controllers\Umat_Controller;
@@ -43,6 +44,9 @@ Route::view('login','livewire.homeauth');
 Route::get('/validasi',[Validasi_Controller::class, 'index']);
 // Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Register Post
+Route::post('/register',[RegisterController::class,'create'])->name('user.login');
 //Login Post
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 Route::post('logout',[LoginController::class,'logout'])->name('logout');

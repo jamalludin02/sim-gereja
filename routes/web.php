@@ -14,6 +14,7 @@ use App\Http\Controllers\Pendeta_Controller;
 use App\Http\Controllers\Lingkungan_Controller;
 use App\Http\Controllers\Katekisasi_Controller;
 use App\Http\Controllers\Baptis_Controller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Nikah_Controller;
 use App\Livewire\IbadahSyukur;
 
@@ -33,9 +34,33 @@ use App\Livewire\IbadahSyukur;
 // });
 // Auth::routes();
 //HALAMAN UTAMA
-Route::get('/',[Home_Controller::class, 'index']);
-Route::get('/umat',[Home_Controller::class, 'indexumat']);
-Route::get('/api/getId', [Home_Controller::class, 'searchId']);
+
+
+// GUEST
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/umat', [HomeController::class, 'indexumat']);
+
+
+// ADMIN
+Route::group(['prefix'=>'admin'], function () {
+    Route::get('/dashboard', [Admin_Controller::class, 'index']);
+
+    Route::view('/admin', 'admin.index');
+    Route::view('/dashboard', 'admin.dashboard');
+    Route::view('/pengumuman', 'admin.pengumuman');
+    Route::view('/pendeta', 'admin.pendeta');
+    Route::view('/lingkungan', 'admin.lingkungan');
+    Route::view('/katekisasi', 'admin.katekisasi');
+    Route::view('/baptis', 'admin.baptis');
+    Route::view('/berkatnikah', 'admin.nikah');
+    Route::get('/persembahan', [Admin_Controller::class, 'indexpersembahan']);
+    Route::get('/umat', [Admin_Controller::class, 'indexumat']);
+});
+
+
+Route::get('/umat',[HomeController::class, 'indexumat']);
+Route::get('/api/getId/{id}', [HomeController::class, 'searchId']);
 //Route::get('/umat',[Home_Controller::class, 'indexumat']);
 //HALAMAN DAFTAR IBADAH
 Route::get('/ibadah',[Ibadah_Controller::class, 'index']);
@@ -43,24 +68,21 @@ Route::view('login','livewire.homeauth');
 //HALAMAN VALIDASI
 Route::get('/validasi',[Validasi_Controller::class, 'index']);
 // Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Register Post
 Route::post('/register',[RegisterController::class,'create'])->name('user.login');
 //Login Post
 Route::post('/login',[LoginController::class,'Login'])->name('user.login');
 Route::post('logout',[LoginController::class,'logout'])->name('logout');
+
+
+
 //HALAMAN ADMIN
-Route::view('/admin','admin.index')->middleware(['auth', 'admin']);
-Route::view('/dashboard','admin.dashboard');
-Route::view('/pengumuman','admin.pengumuman');
-Route::view('/pendeta','admin.pendeta');
-Route::view('/lingkungan','admin.lingkungan');
-Route::view('/katekisasi','admin.katekisasi');
-Route::view('/baptis','admin.baptis');
-Route::view('/berkatnikah','admin.nikah');
-Route::get('/persembahan',[Admin_Controller::class, 'indexpersembahan']);
-Route::get('/umat',[Admin_Controller::class, 'indexumat']);
+// Route::view('/admin','admin.index')->middleware(['auth', 'admin']);
+
+
+
+
 //HALAMAN PENGUMUMAN
 Route::get('/pengumuman',[Pengumuman_Controller::class, 'index']);
 //HALAMAN PERSEMBAHAN

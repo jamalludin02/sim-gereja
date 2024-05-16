@@ -39,11 +39,11 @@ class LoginController extends Controller
     public function Login(Request $request)
     {
         $this->validate($request, [
-            'nik'   => 'required|numeric',
+            'email'   => 'required|numeric',
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::attempt($request->only(['nik','password']))){
+        if (Auth::attempt($request->only(['email','password']))){
             return redirect()->intended('/');
         }else{
             session()->flash('error', 'nik dan password salah.');

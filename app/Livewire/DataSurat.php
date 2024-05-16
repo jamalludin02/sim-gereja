@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Livewire;
-use App\Models\Ibadah;
+// use App\Models\Ibadah;
+
+use App\Models\Datasurat as ModelsDatasurat;
 use Illuminate\Http\Request;
 use App\Models\DataSurats;
+use App\Models\IbadahSyukur;
 use Livewire\Component;
 use Carbon\Carbon;
 use Livewire\WithFileUploads; 
@@ -32,16 +35,16 @@ class DataSurat extends Component
         if ($button === 'terbaru') {
             return redirect(request()->header('Referer'));
         } elseif ($button === 'diterima') {
-            $this->surat = Ibadah::where('status', 1)->get();
+            $this->surat = IbadahSyukur::where('status', 1)->get();
         } elseif($button == 'ditolak'){
-            $this->surat = Ibadah::where('status', 2)->get();
+            $this->surat = IbadahSyukur::where('status', 2)->get();
         } elseif($button == 'diupload'){
-            $this->surat = Ibadah::where('status', 2)->get();
+            $this->surat = IbadahSyukur::where('status', 2)->get();
         }
     }
 
     public function mount(){
-        $this->surat = Ibadah::whereIn('status', [0, 1])->get();
+        $this->surat = IbadahSyukur::whereIn('status', [0, 1])->get();
     }
 
     public function render()
@@ -50,13 +53,13 @@ class DataSurat extends Component
     }
 
     public function terimaProses($suratId){
-        Ibadah::where('id',$suratId)
+        IbadahSyukur::where('id',$suratId)
         ->update(['status'=>1]);
         $this->mount();
     }
 
     public function tolakProses($suratId){
-        Ibadah::where('id',$suratId)
+        IbadahSyukur::where('id',$suratId)
         ->update(['status'=>2]);
         $this->mount();
     }
@@ -67,7 +70,7 @@ class DataSurat extends Component
     }
 
     public function uploadSurat($suratId){
-        $surat = Ibadah::find($suratId);
+        $surat = IbadahSyukur::find($suratId);
         $this->suratId = $surat->id;
         $this->alamat = $surat->alamat;
         $this->namaKK = $surat->nama_kk;
@@ -84,14 +87,14 @@ class DataSurat extends Component
     public function uploadSuratproses(){
         $filename = "surat_ibadah_{$this->namaKK}_{$this->suratId}_{$this->jam}.pdf";
         $this->filesurat->storeAs('assets/surat', $filename);
-        DataSurats::create([
+        ModelsDatasurat::create([
+            'id_user'=>$this->userId,   
             'ibadah_id' => $this->suratId,
-            'pendeta_id' => $this->pendetaId,
-            'user_id'=>$this->userId,
+            'id_pendeta' => $this->pendetaId,
             'surat_link'=>$filename
         ]);
         
-        Ibadah::where('id',$this->suratId)
+        IbadahSyukur::where('id',$this->suratId)
         ->update(['status'=>2]);
         $this->uploadSuratpage = !$this->uploadSuratpage;
         session()->flash('berhasilUpload', 'Surat ibadah berhasil diupload');

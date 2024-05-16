@@ -45,7 +45,7 @@ class Admin_Controller extends Controller
     }
 
     public function indexumat(request $request){
-        $umat = User::where('isUmat', true)->get();
+        $umat = User::where('role', 'UMAT')->get();
         return view('admin.umat', compact('umat'));
     }
 }

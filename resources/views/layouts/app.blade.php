@@ -14,29 +14,26 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=Roboto" rel="stylesheet">
 
     {{-- icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    {{-- CSS --}}
     <link href="{{ asset('/custom/css/styles.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    {{-- @vite(['resources/js/app.js', 'resources/css/app.css']) --}}
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
+
+    {{-- CSS --}}
     {{-- <link rel="stylesheet" href="{{ asset('public/custom/css/style.css') }}"> --}}
 </head>
 
 <body class="sb-nav-fixed">
-    <div id="app">
-        <div id="layoutSidenav">
-            <x-navbar></x-navbar>
-            <x-sidebar></x-sidebar>
-            <div id="layoutSidenav_content" class="mt-5">
-                @yield('content')
-            </div>
-        </div>
+    <div id="app" style="height: 100%">
+        @yield('content')
     </div>
     <script src="{{ asset('custom/js/scripts.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

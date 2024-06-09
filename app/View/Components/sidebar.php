@@ -2,6 +2,10 @@
 
 namespace App\View\Components;
 
+use App\Models\BaptisAnak;
+use App\Models\IbadahSyukur;
+use App\Models\Pernikahan;
+use App\Models\Sidi;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +25,10 @@ class sidebar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.sidebar');
+        $ibadah = IbadahSyukur::where('status', 'PROSES')->count();
+        $sidi = Sidi::where('status', 'PROSES')->count();
+        $baptis = BaptisAnak::where('status', 'PROSES')->count();
+        $pernikahan = Pernikahan::where('status', 'PROSES')->count();
+        return view('components.sidebar' , compact('ibadah','sidi', 'baptis', 'pernikahan'));
     }
 }

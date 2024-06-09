@@ -17,7 +17,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const ADMIN_HOME = '/admin/';
+    public const UMAT_HOME = '/umat/';
+    public const PENDETA_HOME = '/pendeta/';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

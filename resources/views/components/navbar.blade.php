@@ -1,12 +1,14 @@
 <div>
     <nav class="sb-topnav navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="px-5 d-flex w-100 justify-content-between">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                SIM-Gereja Evangelis
-            </a>
+        <div class="px-4 d-flex w-100 justify-content-start">
+            <div class="">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <strong>SIM-Gereja</strong> Evangelis
+                </a>
 
-            <button class="btn btn-link  order-1 order-lg-0 me-4 me-lg-0 fs-5" id="sidebarToggle" href="#!"
-                style="color: #404040;"><i class="bi bi-list "></i></button>
+                <button class="btn btn-link btn-md order-1 order-lg-0 fs-5" id="sidebarToggle" href="#!"
+                    style="color: #404040;"><i class="bi bi-list "></i></button>
+            </div>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->

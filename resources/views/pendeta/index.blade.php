@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto  py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('pendeta.dashboard') }}">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/pendeta/jadwal-acara">Jadwal Acara</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="/pendeta/jadwal-acara">Jadwal Acara</a></li> --}}
                         <!-- <li class="nav-item"><a class="nav-link" href="/pendeta/persetujuan-ibadah-syukur">Persetujuan Ibadah Syukur</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="/pendeta/akun">Akun</a></li>
                         @if (Auth::check())

@@ -102,6 +102,14 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex">
+                    <p class="fw-semibold me-1">Keterngan :</p>
+                    <p id="modalTanggal">{{$item->keterangan ?? '-'}}</p>
+                </div>
+            </div>
+        </div>
         <hr>
         Status: {{$item->status}}
     </div>

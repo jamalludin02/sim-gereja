@@ -83,7 +83,7 @@
                         <div class="d-flex justify-content-end pe-0 me-0">
                             <a href="{{ route('user.index') }}" class="btn btn-secondary btn-sm w-auto px-3 me-2"
                                 role="button">Kembali</a>
-                            <a href="{{ route('user.reset-password') }}" class="btn btn-warning text-white btn-sm w-auto px-3 me-2"
+                            <a href="{{ route('user.reset-password', $data->id) }}" class="btn btn-warning text-white btn-sm w-auto px-3 me-2"
                                 role="button">Reset Password</a>
                             <a class="btn btn-danger btn-sm w-auto px-3 me-2" data-bs-toggle="modal" href="#exampleModal"
                                 role="button">Hapus</a>

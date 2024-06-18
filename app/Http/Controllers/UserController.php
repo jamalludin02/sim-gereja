@@ -42,7 +42,7 @@ class UserController extends Controller
             // 'id' => $this->getAndCheckId(),
             'nama' => $request->nama,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make(12345678),
             'alamat' => $request->alamat,
             'gender' => $request->gender,
             'id_lingkungan' => $request->id_lingkungan,

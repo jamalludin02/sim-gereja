@@ -50,23 +50,23 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <div class="alert alert-sm alert-secondary my-auto py-auto">
-                            <h1 class="h5 fw-bold my-auto">Data Ibadah Syukur</h1>
+                            <h1 class="h5 fw-bold my-auto">Data Baptis Anak</h1>
                         </div>
                         <div class="row d-flex">
                             <div class="col-sm m-3 text-end card bg-warning text-white p-3">
                                 <p class="card-title h5 fw-bold ">Jumlah Pengajuan Proses</p>
                                 <hr>
-                                <p class="my-3 h4">{{ $ibadah->proses ?? 0 }}</p>
+                                <p class="my-3 h4">{{ $baptis->proses ?? 0 }}</p>
                             </div>
                             <div class="col-sm m-3 text-end card bg-danger text-white p-3">
                                 <p class="card-title h5 fw-bold ">Jumlah Pengajuan Ditolak</p>
                                 <hr>
-                                <p class="my-3 h4">{{ $ibadah->ditolak ?? 0 }}</p>
+                                <p class="my-3 h4">{{ $baptis->ditolak ?? 0 }}</p>
                             </div>
                             <div class="col-sm m-3 text-end card bg-success text-white p-3">
                                 <p class="card-title h5 fw-bold ">Jumlah Pengajuan Disetujui</p>
                                 <hr>
-                                <p class="my-3 h4">{{ $ibadah->diterima ?? 0 }}</p>
+                                <p class="my-3 h4">{{ $baptis->diterima ?? 0 }}</p>
                             </div>
                         </div>
                     </div>

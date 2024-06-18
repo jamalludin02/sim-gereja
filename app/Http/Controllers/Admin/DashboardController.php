@@ -66,13 +66,13 @@ class DashboardController extends Controller
             'ditolak' => 0,
             'diterima' => 0
         ];
-        $ibadah->proses = IbadahSyukur::where('status', 'PROSES')->where('id', $id)->count();
-        $ibadah->ditolak = IbadahSyukur::where('status', 'DITOLAK')->where('id', $id)->count();
-        $ibadah->diterima = IbadahSyukur::where('status', 'DITERIMA')->where('id', $id)->count();
+        $ibadah->proses = IbadahSyukur::where('status', 'PROSES')->where('id_user', $id)->count();
+        $ibadah->ditolak = IbadahSyukur::where('status', 'DITOLAK')->where('id_user', $id)->count();
+        $ibadah->diterima = IbadahSyukur::where('status', 'DITERIMA')->where('id_user', $id)->count();
 
-        $baptis->proses = BaptisAnak::where('status', 'PROSES')->where('id', $id)->count();
-        $baptis->ditolak = BaptisAnak::where('status', 'DITOLAK')->where('id', $id)->count();
-        $baptis->diterima = BaptisAnak::where('status', 'DITERIMA')->where('id', $id)->count();
+        $baptis->proses = BaptisAnak::where('status', 'PROSES')->where('id_user', $id)->count();
+        $baptis->ditolak = BaptisAnak::where('status', 'DITOLAK')->where('id_user', $id)->count();
+        $baptis->diterima = BaptisAnak::where('status', 'DITERIMA')->where('id_user', $id)->count();
         
         $sidi = Sidi::where('status', 'DITERIMA')->where('id', $id)->exists();
         $pernikahan = Pernikahan::where('status', 'DITERIMA')->where('id', $id)->exists();

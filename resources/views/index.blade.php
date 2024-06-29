@@ -28,7 +28,9 @@
                     <img src="{{ asset('home/assets/images/logo.png') }}" alt="..." width="50" />
                     <h4 class="my-auto mx-3"><strong>Gereja</strong> Evangelis</h4>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
@@ -42,7 +44,8 @@
                         <li class="nav-item"><a class="nav-link" href="#pengurus">Pengurus</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="/pengumuman">Pengumuman</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="{{ route('login') }}"><strong>Login</strong></a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm"
+                                href="{{ route('login') }}"><strong>Login</strong></a></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +72,8 @@
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/ibadah.png') }}" alt="" width="100">
+                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/ibadah.png') }}"
+                            alt="" width="100">
                     </span>
                     <h4 class="my-3">Ibadah Syukur</h4>
                     <p class="text-muted">Ibadah Syukur adalah kebaktian khusus untuk mengucapkan terima kasih kepada
@@ -78,7 +82,8 @@
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/baptism.png') }}" alt="" width="90">
+                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/baptism.png') }}"
+                            alt="" width="90">
                     </span>
                     <h4 class="my-3">Baptis Anak</h4>
                     <p class="text-muted">Baptis Anak adalah upacara sakramen dalam agama Kristen di mana seorang anak
@@ -87,7 +92,8 @@
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/pernikahan.png') }}" alt="" width="90">
+                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/pernikahan.png') }}"
+                            alt="" width="90">
                     </span>
                     <h4 class="my-3">Pernikahan</h4>
                     <p class="text-muted">Pernikahan adalah sakramen di mana dua orang berkomitmen satu sama lain di
@@ -96,7 +102,8 @@
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/ketekisasi.png') }}" alt="" width="100">
+                        <img class="fa-stack-1x fa-inverse" src="{{ asset('home/assets/images/ketekisasi.png') }}"
+                            alt="" width="100">
                     </span>
                     <h4 class="my-3">SIDI / Katekisasi</h4>
                     <p class="text-muted">Sidi/Katekisasi adalah proses pendidikan dan pengajaran iman Kristen kepada
@@ -116,10 +123,16 @@
             <p class="text-start my-3">
                 <strong>Sejarah GKE</strong>
                 Perjalanan Gereja Kalimantan Evangelis (GKE) Sejak 1839
-                Gereja Kalimantan Evangelis (GKE) didirikan pada 10 April 1839 sebagai Gereja Dayak Evangelis (GDE). Berkantor pusat di Kota Banjarmasin, Provinsi Kalimantan Selatan, GKE menyediakan pelayanan iman kepada suku-suku di pulau Kalimantan, termasuk suku Dayak, sambil membuka pelukan hangat bagi anggota Non-Dayak.
+                Gereja Kalimantan Evangelis (GKE) didirikan pada 10 April 1839 sebagai Gereja Dayak Evangelis (GDE).
+                Berkantor pusat di Kota Banjarmasin, Provinsi Kalimantan Selatan, GKE menyediakan pelayanan iman kepada
+                suku-suku di pulau Kalimantan, termasuk suku Dayak, sambil membuka pelukan hangat bagi anggota
+                Non-Dayak.
             </p>
             <p class="text-end my-3">
-                Dengan pusat pelayanan dan kepemimpinan yang kokoh di Kota Banjarmasin, Provinsi Kalimantan Selatan, GKE telah mendedikasikan diri untuk memberikan pelayanan iman yang mendalam kepada masyarakat Kalimantan. Seiring berjalannya waktu, GKE tetap setia menyinari hati dan jiwa suku-suku yang termasuk dalam rumpun suku Dayak, menjalankan misi ilahi dengan cinta dan kasih.
+                Dengan pusat pelayanan dan kepemimpinan yang kokoh di Kota Banjarmasin, Provinsi Kalimantan Selatan, GKE
+                telah mendedikasikan diri untuk memberikan pelayanan iman yang mendalam kepada masyarakat Kalimantan.
+                Seiring berjalannya waktu, GKE tetap setia menyinari hati dan jiwa suku-suku yang termasuk dalam rumpun
+                suku Dayak, menjalankan misi ilahi dengan cinta dan kasih.
             </p>
         </div>
     </section>
@@ -196,7 +209,8 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -205,7 +219,7 @@
                 <div class="modal-body">
                     <div class="d-flex">
                         <p class="fw-semibold me-1">Acara :</p>
-                        <p id="">Ibadah Syukur</p>
+                        <p id="modalAcara"></p>
                     </div>
                     <div class="d-flex">
                         <p class="fw-semibold me-1">Pemilik Acara :</p>
@@ -234,14 +248,16 @@
                     <p id="modalPendeta"></p> --}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="closeModal()">Close</button>
                     <!-- Add additional buttons or actions here if needed -->
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -277,7 +293,8 @@
                         window.open(info.event.url);
                         return false; // prevents browser from following link in current tab.
                     } else {
-                        $('#modalTitle').text('Ibadah Syukur');
+                        $('#modalTitle').text(info.event.extendedProps.acara);
+                        $('#modalAcara').text(info.event.extendedProps.acara);
                         $('#modalNama').text(info.event.title);
                         $('#modalAlamat').text(info.event.extendedProps.alamat);
                         $('#modalPendeta').text(info.event.extendedProps.pendeta);
@@ -292,25 +309,56 @@
                             ':'); // Split time string into components (hours, minutes, seconds)
                         var formattedTime = timeParts[0] + ':' + timeParts[
                             1]; // Concatenate hours and minutes only
-                        $('#modalWaktu').text('Waktu: ' + formattedTime + ' WIB - Selesai');
+                        $('#modalWaktu').text(formattedTime + ' WIB - Selesai');
                         $('#myModal').modal('show');
                     }
                 },
                 initialView: 'dayGridMonth',
                 events: [
-                    @foreach($data as $event) {
-                        title: `{{ $event->user->gender == 'P' ? 'Bpk ' : 'Ibu ' }} {{ $event->user->nama }}`,
-                        start: '{{ $event->tanggal }}',
-                        extendedProps: {
-                            nama: '{{ $event->user->nama }}',
-                            alamat: '{{ $event->user->alamat }}',
-                            alamat: '{{ $event->user->lingkungan->nama ?? ' - ' }}',
-                            pendeta: `{{ $event->pendeta->name ?? 'Belum Ditentukan' }}`,
-                            time: '{{ $event->waktu }}'
-                        }
-                    },
+                    @foreach ($data as $event)
+                        {
+                            title: `
+                                        @if ($event->acara === 'Pernikahan')
+                                            {{ $event->userLaki->nama }} & {{ $event->userPerempuan->nama }}
+                                        @else
+                                            {{ $event->user->gender == 'P' ? 'Ibu ' : 'Bpk ' }} {{ $event->user->nama }}
+                                        @endif
+                                    `,
+                            start: '{{ $event->tanggal }}',
+                            extendedProps: {
+                                acara: '{{ $event->acara }}',
+                                nama: @if ($event->acara === 'Pernikahan')
+                                    '{{ $event->userLaki->nama }} & {{ $event->userPerempuan->nama }}'
+                                @else
+                                    '{{ $event->user->nama }}'
+                                @endif ,
+                                alamat: @if ($event->acara === 'Pernikahan')
+                                    'Gereja Evangelis'
+                                @else
+                                    '{{ $event->user->alamat }}'
+                                @endif ,
+                                lingkungan: @if ($event->acara === 'Pernikahan')
+                                    '{{ $event->userLaki->lingkungan->nama ?? ' - ' }}'
+                                @else
+                                    '{{ $event->user->lingkungan->nama ?? ' - ' }}'
+                                @endif ,
+                                pendeta: `{{ $event->pendeta->nama ?? 'Belum Ditentukan' }}`,
+                                time: '{{ $event->waktu }}'
+                            },
+                            backgroundColor: 
+                            @if ($event->acara === 'Baptis Anak')
+                                '#36BA98' /* Light Pink */
+                            @elseif ($event->acara === 'Ibadah Syukur')
+                                '#3FA2F6' /* Light Blue */
+                            @elseif ($event->acara === 'Pernikahan')
+                                '#FF4191' /* Pale Green */
+                            @else
+                                '#D3D3D3' /* Light Grey */ ,
+                            @endif
+                        },
                     @endforeach
                 ],
+
                 selectOverlap: function(event) {
                     return event.rendering === 'background';
                 },

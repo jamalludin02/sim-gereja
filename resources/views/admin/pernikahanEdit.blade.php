@@ -2,19 +2,20 @@
 
 @section('content-admin')
     <div class="container">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <div class="card">
             <div class="card-header">Edit Data</div>
 
             <div class="card-body">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+               
 
                 <form method="POST" action="{{ route('pernikahan.update', $data->id) }}">
                     @csrf
@@ -81,7 +82,7 @@
 
                     <div class="form-group mb-3">
                         <label for="inputRole">Pendeta </label>
-                        <select class="form-select" aria-label="Default select example" name="id_pendeta" id="inputRole">
+                        <select class="form-select"  aria-label="Default select example" name="id_pendeta" id="inputRole">
                             <option value="null" {{ $data->id_pendeta == 'null' ? 'selected' : '' }}>Pilih Pendeta Pernikahan
                             </option>
                             @foreach ($pendeta as $item)
@@ -132,7 +133,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm tw-bg-[#6c757d]"
                             data-bs-dismiss="modal">Close</button>
-                        <form method="POST" action="{{ route('baptis-anak.destroy', $data->id) }}">
+                        <form method="POST" action="{{ route('pernikahan.destroy', $data->id) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm tw-bg-[#dc3545]">Hapus</button>

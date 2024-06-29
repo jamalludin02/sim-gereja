@@ -8,6 +8,7 @@ use App\Models\Sidi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class PernikahanController extends Controller
 {
@@ -42,7 +43,7 @@ class PernikahanController extends Controller
     public function store(Request $request)
     {
         // Validasi input
-        $request->validate([
+         $request->validate([
             'id_user_laki' => 'required|exists:users,id',
             'id_user_perempuan' => 'required|exists:users,id',
             'tanggal' => 'required|date',
@@ -121,6 +122,17 @@ class PernikahanController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Validasi input
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'id_pendeta' => 'required|exists:users,id',
+            'status' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }
+
         $data = Pernikahan::find($id);
         $data->update([
             'id_pendeta' => $request->id_pendeta,
@@ -135,7 +147,7 @@ class PernikahanController extends Controller
      */
     public function destroy(string $id)
     {
-        $data = Pernikahan::find($id);
+        $data = Pernikahan::findOrFail($id);
         $data->delete();
         return redirect()->route('pernikahan.index');
     }

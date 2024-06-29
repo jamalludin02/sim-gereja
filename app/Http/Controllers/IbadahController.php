@@ -35,20 +35,12 @@ class IbadahController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $idLingkungan = User::with('lingkungan')->where('id', Auth::user()->id)->first();
-        $query = IbadahSyukur::whereHas('user.lingkungan', function ($query) use ($request, $idLingkungan) {
-            $query->where('id', $idLingkungan->lingkungan->id);
-        })->with('pendeta')->where('tanggal', $request->tanggal)->where('id_pendeta', $request->id_pendeta)->get();
+        $query = IbadahSyukur::with('pendeta')->where('tanggal', $request->tanggal)->where('id_pendeta', $request->id_pendeta)->get();
 
-        // $sql = $query->toSql();
-        // $bindings = $query->getBindings();
-
-        // $fullSql = vsprintf(str_replace('?', '%s', $sql), array_map(function ($binding) {
-        //     return is_numeric($binding) ? $binding : "'{$binding}'";
-        // }, $bindings));
-
-        // dd($fullSql);
+        // $query = IbadahSyukur::whereHas('user.lingkungan', function ($query) use ($request, $idLingkungan) {
+        //     $query->where('id', $idLingkungan->lingkungan->id);
+        // })->with('pendeta')->where('tanggal', $request->tanggal)->where('id_pendeta', $request->id_pendeta)->get();
 
         if ($query->count() == 0) {
             $data = IbadahSyukur::create($request->all());

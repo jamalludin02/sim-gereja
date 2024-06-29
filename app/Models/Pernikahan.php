@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Pernikahan extends Model
 {
@@ -24,6 +25,8 @@ class Pernikahan extends Model
         'status',
     ];
 
+   
+
     public function userLaki()
     {
         return $this->hasOne(User::class, 'id', 'id_user_laki');
@@ -33,6 +36,12 @@ class Pernikahan extends Model
     {
         return $this->hasOne(User::class, 'id', 'id_user_perempuan');
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'id_user_laki');
+    }
+
 
     public function sidiLaki()
     {

@@ -21,4 +21,8 @@ class Sidi extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+    public function pendeta()
+    {
+        return $this->belongsTo(User::class, 'id_pendeta')->where('role', 'PENDETA');
+    }
 }

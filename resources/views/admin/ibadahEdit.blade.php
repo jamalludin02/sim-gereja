@@ -33,7 +33,7 @@
                     </div>
                     <div class="d-flex my-3">
                         <p class="fw-semibold me-1">Nama Pendeta :</p>
-                        <p id="modalPendeta">{{auth()->user()->nama}}</p>
+                        <p id="modalPendeta">{{$data->pendeta->nama ?? '-'}}</p>
                     </div>
                 </div>
 

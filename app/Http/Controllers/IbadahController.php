@@ -61,7 +61,10 @@ class IbadahController extends Controller
     {
         $data = IbadahSyukur::with(['user.lingkungan', 'pendeta'])->where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         $listPendeta = User::where('role', 'PENDETA')->get();
-        // dd($data);       
+        // $listTglPendetaBerhalangan = IbadahSyukur::with(['user', 'pendeta'])
+        //     ->where('status', 'DITERIMA')
+        //     ->get();
+        // dd($listTglPendetaBerhalangan);       
         return view('umat.ibadahCreate', compact('listPendeta',  'data'));
     }
 

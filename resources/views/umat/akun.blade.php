@@ -1,8 +1,18 @@
 @extends('umat.index')
 
 @section('content-umat')
-    <div class="container">
 
+    <div class="container">
+        {{-- @dd($errors) --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card shadow mb-3">
             <div class="card-header d-flex">
                 <p class="my-auto">Data Akun Jemaat</p>

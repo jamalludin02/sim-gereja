@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfAuthenticated
@@ -21,12 +22,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::user()->role == 'ADMIN') {
-                    return redirect(RouteServiceProvider::ADMIN_HOME);
-                } elseif (Auth::user()->role == 'PENDETA') {
-                    return redirect(RouteServiceProvider::PENDETA_HOME);
-                } elseif (Auth::user()->role == 'UMAT') {
-                    return redirect(RouteServiceProvider::UMAT_HOME);
+                if (Auth::check() && Auth::user()->role == 'UMAT') {
+                    return redirect()->route('umat.dashboard');
+                } else if (Auth::check() && Auth::user()->role == 'ADMIN') {
+                    return redirect()->route('admin.dashboard');
+                } else if (Auth::check() && Auth::user()->role == 'PENDETA') {
+                    return redirect()->route('pendeta.dashboard');
                 }
             }
         }

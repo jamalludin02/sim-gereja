@@ -42,7 +42,7 @@ Route::get('api/get-jadwal', [HomeController::class, 'getJadwal'])->name('api.ge
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // Lingkungan
@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 });
 
 
-Route::group(['prefix' => 'umat'], function () {
+Route::group(['middleware' => ['auth', 'umat'],'prefix' => 'umat'], function () {
     Route::get('/', [DashboardController::class, 'indexUmat'])->name('umat.dashboard');
 
     // IabadahSyukur
@@ -112,7 +112,7 @@ Route::group(['prefix' => 'umat'], function () {
 });
 
 
-Route::group(['prefix' => 'pendeta'], function () {
+Route::group(['middleware' => ['auth'],'prefix' => 'pendeta'], function () {
     Route::get('/', [DashboardController::class, 'indexPendeta'])->name('pendeta.dashboard');
 
 

@@ -34,6 +34,7 @@
     </div>
     <script src="{{ asset('custom/js/scripts.js') }}"></script>
     @stack('scripts')
+    @stack('custom-scripts')
 </body>
 
 </html>

@@ -41,28 +41,42 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto  py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('umat.dashboard') }}">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/umat/ibadah-syukur">Pengajuan Ibadah Syukur</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/umat/ibadah-syukur">Pengajuan Ibadah Syukur</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="/umat/baptis-anak">Baptis Anak</a></li>
                         <li class="nav-item"><a class="nav-link" href="/umat/sidi">Sidi</a></li>
                         <li class="nav-item"><a class="nav-link" href="/umat/pernikahan">Pernikahan</a></li>
                         <li class="nav-item"><a class="nav-link" href="/umat/akun">Akun</a></li>
+
                         @if (Auth::check())
-                            <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" id="logout"
-                                    href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{-- <div class="sb-nav-link-icon me-3" style="color: #f8f9fa"></div> --}}
-                                    <strong>Logout</strong>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->nama }} 
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/umat/akun">Setting Akun</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" id="logout"
+                                            href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{-- <div class="sb-nav-link-icon me-3" style="color: #f8f9fa"></div> --}}
+                                            <strong>Logout</strong>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         @else
                             <li class="nav-item"><a class="nav-link btn btn-primary btn-sm"
                                     href="{{ route('login') }}"><strong>Login</strong></a>
                             </li>
                         @endif
-
                     </ul>
                 </div>
             </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,37 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    // protected $redirectTo = '/admin';
+    public function redirectTo()
+    {
+        // User role
+        $user = Auth::user();
+        $role = $user->role;
+        $isDefaultPassword = Hash::check('12345678', $user->password);
+
+        // Check user role
+        switch ($role) {
+            case 'ADMIN':
+                return '/admin/';
+            case 'UMAT':
+                if ($isDefaultPassword) {
+                    session()->flash('error', 'Password anda menggunakan password default. Silahkan ubah password anda.');
+                    return '/umat/akun';
+                } else {
+                    return '/umat/';
+                }
+            case 'PENDETA':
+                if ($isDefaultPassword) {
+                    session()->flash('error', 'Password anda menggunakan password default. Silahkan ubah password anda.');
+                    return '/pendeta/akun';
+                } else {
+                    return '/pendeta/';
+                }
+            default:
+                return '/login';
+        }
+    }
+
 
     /**
      * Create a new controller instance.

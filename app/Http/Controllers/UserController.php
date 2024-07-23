@@ -7,6 +7,7 @@ use App\Models\Lingkungan;
 use App\Models\User;
 use Error;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -104,7 +105,19 @@ class UserController extends Controller
     {
         $id = auth()->user()->id;
         $data = User::with('lingkungan')->find($id);
-        return view('umat.akun', compact('data'));
+
+
+        $user = Auth::user();
+        $role = $user->role;
+        $isDefaultPassword = Hash::check('12345678', $user->password);
+        if($isDefaultPassword){
+            return view('umat.akun', compact('data'))->withErrors(['error' => [
+                'Password anda menggunakan password default. Silahkan ubah password anda.',
+            ]]);;
+        }else{
+            return view('umat.akun', compact('data'));
+        }
+       
     }
     public function updateAkunByUmat(Request $request)
     {
@@ -150,7 +163,17 @@ class UserController extends Controller
     {
         $id = auth()->user()->id;
         $data = User::with('lingkungan')->find($id);
-        return view('pendeta.akun', compact('data'));
+        
+        $user = Auth::user();
+        $role = $user->role;
+        $isDefaultPassword = Hash::check('12345678', $user->password);
+        if($isDefaultPassword){
+            return view('pendeta.akun', compact('data'))->withErrors(['error' => [
+                'Password anda menggunakan password default. Silahkan ubah password anda.',
+            ]]);;
+        }else{
+            return view('pendeta.akun', compact('data'));
+        }
     }
     public function updateAkunByPendeta(Request $request)
     {

@@ -40,10 +40,10 @@ class SidiController extends Controller
         $request->validate([
             'surat_baptis' => 'required|file|mimes:pdf|max:2048', // contoh validasi
         ]);
-        
+
         // Inisialisasi variabel $path
         $path = null;
-        
+
         // Mengunggah dan menyimpan file ke storage
         if ($request->hasFile('surat_baptis')) {
             $file = $request->file('surat_baptis');
@@ -107,7 +107,7 @@ class SidiController extends Controller
     public function indexUmat()
     {
         $id = auth()->user()->id;
-        $sidi = Sidi::where('id_user', $id)->first() ? true : false;
+        $sidi = Sidi::where('id_user', $id)->where('sidi.status', 'DITERIMA')->first() ? true : false;
         $data = Sidi::with(['user' => fn ($q) => $q->with('lingkungan')])->join('users', 'sidi.id_user', '=', 'users.id')
             ->join('lingkungan', 'users.id_lingkungan', '=', 'lingkungan.id')
             ->select('users.*', 'sidi.*', 'lingkungan.nama as lingkungan')
@@ -119,7 +119,8 @@ class SidiController extends Controller
     public function print()
     {
         $id = auth()->user()->id;
-        $data = Sidi::with(['user' => fn ($q) => $q->with('lingkungan')])->join('users', 'sidi.id_user', '=', 'users.id')
+        $data = Sidi::with(['user' => fn ($q) => $q->with('lingkungan')])
+            ->join('users', 'sidi.id_user', '=', 'users.id')
             ->join('lingkungan', 'users.id_lingkungan', '=', 'lingkungan.id')
             ->select('users.*', 'sidi.*', 'lingkungan.nama as lingkungan')
             ->where('sidi.id_user', $id)

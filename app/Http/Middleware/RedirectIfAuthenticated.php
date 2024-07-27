@@ -16,18 +16,32 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::check() && Auth::user()->role == 'UMAT') {
-                    return redirect()->route('umat.dashboard');
-                } else if (Auth::check() && Auth::user()->role == 'ADMIN') {
-                    return redirect()->route('admin.dashboard');
-                } else if (Auth::check() && Auth::user()->role == 'PENDETA') {
-                    return redirect()->route('pendeta.dashboard');
+                $role = Auth::user()->role;
+                if ($role == 'ADMIN') {
+                    return redirect('/admin');
+                } elseif ($role == 'UMAT') {
+                    $hashedPassword = Auth::user()->getAuthPassword();
+                    if (Hash::check('12345678', $hashedPassword)) {
+                        return redirect()->route('akun.umat')->withErrors('Password anda menggunakan password default. Silahkan ubah password anda.');
+                    } else {
+                        return redirect('/umat');
+                    }
+                } elseif ($role == 'PENDETA') {
+                    $hashedPassword = Auth::user()->getAuthPassword();
+                    if (Hash::check('12345678', $hashedPassword)) {
+                        return redirect()->route('akun.pendeta')->withErrors('Password anda menggunakan password default. Silahkan ubah password anda.');
+                    } else {
+                        return redirect('/pendeta');
+                    }
+                } else {
+                    return redirect('/login');
                 }
             }
         }

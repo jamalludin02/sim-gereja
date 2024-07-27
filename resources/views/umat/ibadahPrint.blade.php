@@ -17,28 +17,36 @@
             </div>
         </div>
         <div class="w-100 px-4 mb-2" id="body">
-            <p class="text-center fw-bold fs-5"> Bukti Surat Keanggotaan Sidi / Katekisasi</p>
+            <p class="text-center fw-bold fs-5"> Surat Validasi Ibadah Syukur</p>
             <table class="table">
                 <tbody>
                     <tr>
-                        <th class="fw-bold">Id Jemaat</th>
-                        <td>: {{ $data->user->id }}</td>
+                        <th class="fw-bold">Acara</th>
+                        <td>: Ibadah Syukur</td>
                     </tr>
                     <tr>
-                        <th class="fw-bold border-top">Id Sidi</th>
-                        <td class="border-top">: {{ $data->id }}</td>
-                    </tr>
-                    <tr>
-                        <th class="fw-bold border-top">Nama</th>
+                        <th class="fw-bold border-top">Pemilik Acara</th>
                         <td class="border-top">: {{ $data->user->nama }}</td>
                     </tr>
                     <tr>
-                        <th class="fw-bold border-top">Alamat</th>
-                        <td class="border-top">: {{ $data->user->alamat }}</td>
+                        <th class="fw-bold border-top">Id Sidi</th>
+                        <td class="border-top">: {{$data->user->alamat}}</td>
                     </tr>
                     <tr>
                         <th class="fw-bold border-top">Lingkungan</th>
-                        <td class="border-top">: {{ $data->lingkungan }}</td>
+                        <td class="border-top">: {{$data->lingkungan}}</td>
+                    </tr>
+                    <tr>
+                        <th class="fw-bold border-top">Tanggal</th>
+                        <td class="border-top">: {{$data->tanggal}}</td>
+                    </tr>
+                    <tr>
+                        <th class="fw-bold border-top">Waktu</th>
+                        <td class="border-top">: {{ \Carbon\Carbon::parse($data->waktu)->format('H:i') }}</td>
+                    </tr>
+                    <tr>
+                        <th class="fw-bold border-top">Nama Pendeta</th>
+                        <td class="border-top">: {{ $data->pendeta->nama }}</td>
                     </tr>
                     <tr>
                         <th class="fw-bold border-top">Status Pengajuan</th>

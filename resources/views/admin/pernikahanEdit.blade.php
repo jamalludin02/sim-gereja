@@ -3,20 +3,18 @@
 @section('content-admin')
     <div class="container">
         @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card">
             <div class="card-header">Edit Data</div>
 
             <div class="card-body">
-               
-
                 <form method="POST" action="{{ route('pernikahan.update', $data->id) }}">
                     @csrf
                     @method('PATCH')
@@ -44,8 +42,7 @@
                             <div class="form-group mb-3">
                                 <label for="idLaki">KTP</label>
                                 <div class="p-3 border">
-                                    <embed id="previewPdf"
-                                        src="{{ Storage::url($data->ktp_laki ) }}"
+                                    <embed id="previewPdf" src="{{ Storage::url($data->ktp_laki) }}"
                                         style="width:100%; height:600px;" frameborder="0">
                                 </div>
                             </div>
@@ -72,8 +69,7 @@
                             <div class="form-group mb-3">
                                 <label for="idLaki">KTP</label>
                                 <div class="p-3 border">
-                                    <embed id="previewPdf"
-                                        src="{{ Storage::url( $data->ktp_perempuan ) }}"
+                                    <embed id="previewPdf" src="{{ Storage::url($data->ktp_perempuan) }}"
                                         style="width:100%; height:600px;" frameborder="0">
                                 </div>
                             </div>
@@ -82,14 +78,59 @@
 
                     <div class="form-group mb-3">
                         <label for="inputRole">Pendeta </label>
-                        <select class="form-select"  aria-label="Default select example" name="id_pendeta" id="inputRole">
-                            <option value="null" {{ $data->id_pendeta == 'null' ? 'selected' : '' }}>Pilih Pendeta Pernikahan
+                        <select class="form-select" aria-label="Default select example" name="id_pendeta" id="inputRole">
+                            <option value="null" {{ $data->id_pendeta == 'null' ? 'selected' : '' }}>Pilih Pendeta
+                                Pernikahan
                             </option>
                             @foreach ($pendeta as $item)
-                                <option value="{{ $item->id }}" {{ $data->id_pendeta == $item->id ? 'selected' : '' }}>
+                                <option value="{{ $item->id }}"
+                                    {{ $data->id_pendeta == $item->id ? 'selected' : '' }}>
                                     {{ $item->nama }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="row px-3 my-3">
+                        <div class="p-3 overflow-auto border rounded shadow-sm" style="height: 350px">
+                            <p class="fs-5">Jadwal Pendeta Berhalangan</p>
+                            @if (count($jadwalHalangan) > 0)
+                                <table class="table">
+                                    <thead>
+                                        <tr class="table-light">
+                                            <th scope="col">No</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col">Waktu</th>
+                                            <th scope="col">Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($jadwalHalangan as $k1 => $item)
+                                            <tr class="table-light">
+                                                <td colspan="5" class="fw-bold" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse-{{ $k1 }}" aria-expanded="false"
+                                                    aria-controls="collapse-{{ $k1 }}" role="button">
+                                                    {{ $k1 }}
+                                                </td>
+                                            </tr>
+                                            @php $index = 1; @endphp
+                                            @foreach ($item as $value)
+                                                <tr>
+                                                    <td>{{ $index }}</td>
+                                                    <td>{{ $k1 }}</td>
+                                                    <td>{{ $value['tanggal'] }}</td>
+                                                    <td>{{ $value['waktu'] }}</td>
+                                                    <td>{{ !empty($value['keterangan']) ? $value['keterangan'] : ' - ' }}
+                                                    </td>
+                                                </tr>
+                                                @php $index++; @endphp
+                                            @endforeach
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <p class="text-center">Tidak ada jadwal ibadah syukur</p>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="form-group mb-3">
@@ -119,7 +160,8 @@
         </div>
 
         {{-- modal --}}
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content">
                     <div class="modal-header tw-justify-between">
@@ -144,4 +186,11 @@
         </div>
         {{-- tutup modal --}}
     </div>
+
+    <style>
+        thead th {
+            position: sticky;
+            top: 0;
+        }
+    </style>
 @endsection

@@ -8,7 +8,8 @@
                 <div class="card-header d-flex">
                     <p class="my-auto">Data Anggota Sidi / Katekisasi</p>
                     @if ($data->status == 'DITERIMA')
-                        <a target="_blank" href="{{ route('sidi-print.umat') }}" class="ms-auto btn btn-sm btn-secondary d-flex py-0">
+                        <a target="_blank" href="{{ route('sidi-print.umat') }}"
+                            class="ms-auto btn btn-sm btn-secondary d-flex py-0">
                             <p class="mx-2 my-auto">Cetak Surat Keanggotaan</p><i
                                 class="my-auto bi bi-printer-fill ml-auto fs-6"></i>
                         </a>
@@ -50,10 +51,6 @@
                         <p class="my-1">Anda Belum Terdaftar Sebagai Anggota Sidi / Katekisasi</p>
                         <p class="fw-light mt-0">*Silahkan Upload file bukti / surat baptis untuk mendaftar</p>
                         <input type="file" name="surat_baptis" id="" accept="application/pdf">
-                        {{-- <div class="form-group my-2">
-
-
-                        </div> --}}
 
                         <div class="d-flex justify-content-end pe-0 me-0">
                             <button class="btn btn-primary btn-sm w-auto px-3 tw-bg-[#007bff]"

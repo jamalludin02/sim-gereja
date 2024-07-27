@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\PernikahanDataTable;
+use App\Models\JadwalHalangan;
 use App\Models\Pernikahan;
 use App\Models\Sidi;
 use App\Models\User;
@@ -33,7 +34,9 @@ class PernikahanController extends Controller
     {
         $id = auth()->user()->id;
         $data = User::findOrFail($id);
-        $sidi = Sidi::where('id_user', $id)->first();
+        $sidi = Sidi::where('id_user', $id)->where('status', 'DITERIMA')->first();
+
+       
         return view('umat.pernikahanCreate', compact('data', 'sidi'));
     }
 
@@ -114,7 +117,9 @@ class PernikahanController extends Controller
             $q->with('lingkungan');
         }, 'sidiLaki', 'sidiPerempuan'])->find($id);
         $pendeta = User::select('id', 'nama')->where('role', 'PENDETA')->get();
-        return view('admin.pernikahanEdit', compact('data', 'pendeta'));
+        $jadwalHalangan = JadwalHalangan::with(['pendeta'])->where('status', 'ACTIVE')->get();
+        $jadwalHalangan = $jadwalHalangan->groupBy('pendeta.nama')->toArray();
+        return view('admin.pernikahanEdit', compact('data', 'pendeta', 'jadwalHalangan'));
     }
 
     /**
@@ -134,9 +139,11 @@ class PernikahanController extends Controller
         }
 
         $data = Pernikahan::find($id);
+
+       
         $data->update([
             'id_pendeta' => $request->id_pendeta,
-            'status' => $request->status
+            'status' => $request->status,
         ]);
 
         return redirect()->route('pernikahan.index');
@@ -155,7 +162,7 @@ class PernikahanController extends Controller
     public function indexUmat()
     {
         $data = $this->getData();
-        $sidi = Sidi::where('id_user', auth()->user()->id)->first();
+        $sidi = Sidi::where('id_user', auth()->user()->id)->where('status', 'DITERIMA')->first();
         if ($sidi === null) {
             $disableBtn = false;
             return view('umat.pernikahan', compact('data', 'disableBtn'))

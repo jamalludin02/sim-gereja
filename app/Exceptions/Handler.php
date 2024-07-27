@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Request;
+use PHPUnit\TextUI\Configuration\NoCustomCssFileException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -44,5 +47,64 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Report or log an exception.
+     *
+     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     *
+     * @param  \Throwable  $exception
+     * @return void
+     */
+    public function report(Throwable $exception)
+    {
+        if ($exception instanceof NoCustomCssFileException) {
+            //
+        }
+
+        parent::report($exception);
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Illuminate\Http\Response
+     */
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof HttpException) {
+            $statusCode = $exception->getStatusCode();
+
+            $message = $exception->getMessage();
+            if (empty($message)) {
+                $message = $this->getDefaultMessage($statusCode);
+            }
+
+            if (view()->exists("errors.{$statusCode}")) {
+                return response()->view("errors.{$statusCode}", ['message' => $message], $statusCode);
+            }
+        }
+
+        return parent::render($request, $exception);
+    }
+
+    /**
+     * Get default message for the given status code.
+     *
+     * @param int $statusCode
+     * @return string
+     */
+    protected function getDefaultMessage($statusCode)
+    {
+        $messages = [
+            404 => 'Page Not Found',
+            405 => 'Method Not Allowed',
+            // Add more default messages as needed
+        ];
+
+        return $messages[$statusCode] ?? 'An error occurred';
     }
 }

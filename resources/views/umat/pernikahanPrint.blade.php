@@ -16,47 +16,98 @@
                 </div>
             </div>
         </div>
-        <div class="w-100 px-4 mb-2 page-break"  id="body">
+        <div class="w-100 px-4 mb-2 page-break" id="body">
             <p class="text-center fw-bold fs-5"> Bukti Surat Keanggotaan Sidi / Katekisasi</p>
 
-            {{--  --}}
             <div class="">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <h5>Pengantin Pria</h5>
-                        <p class="my-0"><strong>ID:</strong> {{ $data->laki_id }}</p>
-                        <p class="my-0"><strong>ID Sidi:</strong> {{ $data->sidi_laki }}</p>
-                        <p class="my-0"><strong>Nama:</strong> {{ $data->laki_nama }}</p>
-                        <p class="my-0"><strong>Alamat:</strong> {{ $data->laki_alamat }}</p>
-                        <p class="my-0"><strong>Gender:</strong> {{ $data->laki_gender }}</p>
-                        <p class="my-0"><strong>Lingkungan:</strong> {{ $data->laki_lingkungan }}</p>
-                    </div>
-                    <hr>
-                    <div class="col-md-6">
-                        <h5>Pengantin Wanita</h5>
-                        <p class="my-0"><strong>ID:</strong> {{ $data->perempuan_id }}</p>
-                        <p class="my-0"><strong>ID Sidi:</strong> {{ $data->sidi_perempuan }}</p>
-                        <p class="my-0"><strong>Nama:</strong> {{ $data->perempuan_nama }}</p>
-                        <p class="my-0"><strong>Alamat:</strong> {{ $data->perempuan_alamat }}</p>
-                        <p class="my-0"><strong>Gender:</strong> {{ $data->perempuan_gender }}</p>
-                        <p class="my-0"><strong>Lingkungan:</strong> {{ $data->perempuan_lingkungan }}</p>
-                    </div>
-                </div>
-                {{-- <div class="page-break"></div> --}}
-                <hr>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <h5>Detail Pernikahan</h5>
-                        <p class="my-0"><strong>Tanggal:</strong>
-                            {{ \Carbon\Carbon::parse($data->tanggal)->format('d-m-Y') }}
-                        </p>
-                        <p class="my-0"><strong>Waktu:</strong> {{ \Carbon\Carbon::parse($data->waktu)->format('H:i') }}
-                        </p>
-                        <p class="my-0"><strong>Nama Pendeta:</strong> {{ $data->pendeta->nama ?? 'Belum ditentukan' }}</p>
-                        <p class="my-0"><strong>Status:</strong> {{ $data->status }}</p>
-                    </div>
-                </div>
+                <p class=" fw-bold fs-5"> Pengantin Pria</p>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th style="width: 150px">ID</th>
+                            <td>{{ $data->laki_id }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">ID Sidi</th>
+                            <td>{{ $data->sidi_laki }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Nama</th>
+                            <td>{{ $data->laki_nama }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Alamat</th>
+                            <td>{{ $data->laki_alamat }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Gender</th>
+                            <td>{{ $data->laki_gender }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Lingkungan</th>
+                            <td>{{ $data->laki_lingkungan }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+
+                <p class=" fw-bold fs-5"> Pengantin Wanita</p>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th style="width: 150px">ID</th>
+                            <td>{{ $data->perempuan_id }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">ID Sidi</th>
+                            <td>{{ $data->sidi_perempuan }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Nama</th>
+                            <td>{{ $data->perempuan_nama }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Alamat</th>
+                            <td>{{ $data->perempuan_alamat }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Gender</th>
+                            <td>{{ $data->perempuan_gender }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Lingkungan</th>
+                            <td>{{ $data->perempuan_lingkungan }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
+                <p class=" fw-bold fs-5"> Detail Data Pernikahan</p>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th style="width: 150px">Tanggal</th>
+                            <td>{{ \Carbon\Carbon::parse($data->tanggal)->format('d-m-Y') }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Waktu</th>
+                            <td>{{ \Carbon\Carbon::parse($data->waktu)->format('H:i') }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Nama Pendeta</th>
+                            <td>{{ $data->pendeta->nama ?? 'Belum ditentukan' }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px">Status</th>
+                            <td>{{ $data->status }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+
             {{--  --}}
 
             <div class="w-full">
@@ -84,14 +135,20 @@
 
 @push('styles')
     <style>
-         p {
-             margin: 0 !important;
-         }
+        p {
+            margin: 0 !important;
+        }
+
         @media print {
             .page-break {
                 clear: both;
                 page-break-before: always;
             }
+        }
+
+        .fixed-width-label {
+            width: 50px !important;
+            /* Sesuaikan dengan lebar yang Anda inginkan */
         }
     </style>
 @endpush

@@ -14,7 +14,7 @@ class JadwalController extends Controller
     public function indexPendeta()
     {
         $id = Auth::user()->id;
-        $ibadah = IbadahSyukur::with('user.lingkungan')->where('id_pendeta', $id)->get();
+        $ibadah = IbadahSyukur::with('user.lingkungan')->where('id_pendeta', $id)->where('status', 'ACTIVE')->get();
         $pernikahan = Pernikahan::with(['userLaki', 'userPerempuan'])->where('id_pendeta', $id)->get();
         // dd($pernikahan[0]->userLaki->nama);
         return view('pendeta.jadwal', compact('ibadah', 'pernikahan'));

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\IbadahDataTable;
 use App\Models\IbadahSyukur;
+use App\Models\JadwalHalangan;
 use App\Models\Lingkungan;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class IbadahController extends Controller
     public function create()
     {
         $lingkungan = Lingkungan::all();
+       
         return view('admin.ibadahCreate', compact('lingkungan'));
     }
 
@@ -37,10 +39,6 @@ class IbadahController extends Controller
     {
         $idLingkungan = User::with('lingkungan')->where('id', Auth::user()->id)->first();
         $query = IbadahSyukur::with('pendeta')->where('tanggal', $request->tanggal)->where('id_pendeta', $request->id_pendeta)->get();
-
-        // $query = IbadahSyukur::whereHas('user.lingkungan', function ($query) use ($request, $idLingkungan) {
-        //     $query->where('id', $idLingkungan->lingkungan->id);
-        // })->with('pendeta')->where('tanggal', $request->tanggal)->where('id_pendeta', $request->id_pendeta)->get();
 
         if ($query->count() == 0) {
             $data = IbadahSyukur::create($request->all());
@@ -61,11 +59,10 @@ class IbadahController extends Controller
     {
         $data = IbadahSyukur::with(['user.lingkungan', 'pendeta'])->where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         $listPendeta = User::where('role', 'PENDETA')->get();
-        // $listTglPendetaBerhalangan = IbadahSyukur::with(['user', 'pendeta'])
-        //     ->where('status', 'DITERIMA')
-        //     ->get();
-        // dd($listTglPendetaBerhalangan);       
-        return view('umat.ibadahCreate', compact('listPendeta',  'data'));
+
+        $jadwalHalangan = JadwalHalangan::with(['pendeta'])->where('status', 'ACTIVE')->get();
+        $jadwalHalangan = $jadwalHalangan->groupBy('pendeta.nama')->toArray();
+        return view('umat.ibadahCreate', compact('listPendeta',  'data', 'jadwalHalangan'));
     }
 
     /**
@@ -107,18 +104,16 @@ class IbadahController extends Controller
         return redirect()->route('ibadah-syukur.index');
     }
 
-    // public function indexPendeta()
-    // {
-    //     $id = Auth::user()->id;
-    //     $data = IbadahSyukur::with('user.lingkungan')->where('id_pendeta', $id)->where('status', 'PROSES')->get();
-    //     // dd($data);
-    //     return view('pendeta.persetujuan', compact('data'));
-    // }
-    // public function formPenolakan($id)
-    // {
-    //     $data = IbadahSyukur::with('user.lingkungan')->where('id', $id)->first();
-    //     // dd($data);
-    //     return view('pendeta.form-penolakan', compact('data'));
-    // }
-
+    public function print($ibadah_id)
+    {
+        $id = auth()->user()->id;
+        $data = IbadahSyukur::with(['user' => fn ($q) => $q->with('lingkungan')])
+            ->join('users', 'ibadah_syukur.id_user', '=', 'users.id')
+            ->join('lingkungan', 'users.id_lingkungan', '=', 'lingkungan.id')
+            ->select('users.*', 'ibadah_syukur.*', 'lingkungan.nama as lingkungan')
+            ->where('ibadah_syukur.id', $ibadah_id)
+            ->first();
+        // dd($data);
+        return view('umat.ibadahPrint', compact('data'));
+    }
 }

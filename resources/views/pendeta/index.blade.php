@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>Agency - Start Bootstrap Theme</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('home/assets/images/logo.ico') }}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -41,6 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto  py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('pendeta.dashboard') }}">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('jadwal-halangan.pendeta') }}">Jadwa Halangan</a></li>
                         {{-- <li class="nav-item"><a class="nav-link" href="/pendeta/jadwal-acara">Jadwal Acara</a></li> --}}
                         <!-- <li class="nav-item"><a class="nav-link" href="/pendeta/persetujuan-ibadah-syukur">Persetujuan Ibadah Syukur</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="/pendeta/akun">Akun</a></li>

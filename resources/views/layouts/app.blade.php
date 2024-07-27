@@ -14,6 +14,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('home/assets/images/logo.ico') }}" />
     <link href="https://fonts.bunny.net/css?family=Roboto" rel="stylesheet">
 
     {{-- icon --}}
@@ -23,6 +25,8 @@
     <!-- Scripts -->
     {{-- @vite(['resources/js/app.js', 'resources/css/app.css']) --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
     {{-- CSS --}}
     {{-- <link rel="stylesheet" href="{{ asset('public/custom/css/style.css') }}"> --}}
